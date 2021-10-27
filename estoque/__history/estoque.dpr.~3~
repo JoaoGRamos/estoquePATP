@@ -1,0 +1,18 @@
+program estoque;
+
+uses
+  Vcl.Forms,
+  pasPrincipal in 'pasPrincipal.pas' {frmPrincipal},
+  pasCAproduto in 'pasCAproduto.pas' {frmCAproduto},
+  pasCategoria in 'pasCategoria.pas' {frmCategoria};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCAproduto, frmCAproduto);
+  Application.CreateForm(TfrmCategoria, frmCategoria);
+  Application.Run;
+end.

@@ -1,0 +1,66 @@
+object frmPrincipal: TfrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'Controle de estoque'
+  ClientHeight = 201
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object MainMenu1: TMainMenu
+    Left = 48
+    Top = 56
+    object Cadastro: TMenuItem
+      Caption = 'Cadastro'
+      object Produto1: TMenuItem
+        Caption = 'Produto'
+      end
+      object Categoria1: TMenuItem
+        Caption = 'Categoria'
+      end
+      object Subcategoria1: TMenuItem
+        Caption = 'Subcategoria'
+      end
+      object UnidadedeMedida1: TMenuItem
+        Caption = 'Unidade de Medida'
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Cliente1: TMenuItem
+        Caption = 'Cliente'
+      end
+      object Frornecedor1: TMenuItem
+        Caption = 'Frornecedor'
+      end
+    end
+    object Consulta1: TMenuItem
+      Caption = 'Consulta'
+      object Produtos1: TMenuItem
+        Caption = 'Produtos'
+      end
+      object Forncedores1: TMenuItem
+        Caption = 'Forncedores'
+      end
+      object Clientes1: TMenuItem
+        Caption = 'Clientes'
+      end
+    end
+    object Movimentao1: TMenuItem
+      Caption = 'Movimenta'#231#227'o'
+      object Venda1: TMenuItem
+        Caption = 'Venda'
+      end
+      object Compra1: TMenuItem
+        Caption = 'Compra'
+      end
+    end
+  end
+end

@@ -1,0 +1,22 @@
+program estoque;
+
+uses
+  Vcl.Forms,
+  pasPrincipal in 'pasPrincipal.pas' {frmPrincipal},
+  pasCAproduto in 'pasCAproduto.pas' {frmCAproduto},
+  pasCategoria in 'pasCategoria.pas' {frmCategoria},
+  pasSubcat in 'pasSubcat.pas' {frmSubcat},
+  pasUmedida in 'pasUmedida.pas' {frmUmedida};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmCAproduto, frmCAproduto);
+  Application.CreateForm(TfrmCategoria, frmCategoria);
+  Application.CreateForm(TfrmSubcat, frmSubcat);
+  Application.CreateForm(TfrmUmedida, frmUmedida);
+  Application.Run;
+end.

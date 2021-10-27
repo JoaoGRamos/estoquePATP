@@ -1,0 +1,55 @@
+unit pasPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+
+type
+  TfrmPrincipal = class(TForm)
+    MainMenu1: TMainMenu;
+    Cadastro: TMenuItem;
+    Produto1: TMenuItem;
+    Categoria1: TMenuItem;
+    Subcategoria1: TMenuItem;
+    UnidadedeMedida1: TMenuItem;
+    N1: TMenuItem;
+    Cliente1: TMenuItem;
+    Frornecedor1: TMenuItem;
+    Consulta1: TMenuItem;
+    Movimentao1: TMenuItem;
+    Produtos1: TMenuItem;
+    Forncedores1: TMenuItem;
+    Clientes1: TMenuItem;
+    Venda1: TMenuItem;
+    Compra1: TMenuItem;
+    procedure Produto1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses pasCAcliente, pasCAfornecedor, pasCAproduto, pasCategoria, pasCOcliente,
+  pasCOfornecedor, pasCompra, pasCOproduto, pasSubcat, pasUmedida, pasVenda;
+
+procedure TfrmPrincipal.Produto1Click(Sender: TObject);
+begin
+  frmCAproduto := TfrmCAproduto.Create(Self);
+  frmCAproduto.ShowModal;
+  try
+
+  finally
+
+  end;
+end;
+
+end.
