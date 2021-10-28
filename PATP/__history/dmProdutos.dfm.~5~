@@ -1,0 +1,57 @@
+object dtmProdutos: TdtmProdutos
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 354
+  Width = 374
+  object FDQuery1: TFDQuery
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from produto')
+    Left = 88
+    Top = 56
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = FDQuery1
+    Left = 88
+    Top = 112
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 88
+    Top = 176
+    object ClientDataSet1idproduto: TAutoIncField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object ClientDataSet1nome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 95
+    end
+    object ClientDataSet1descricao: TStringField
+      FieldName = 'descricao'
+      Origin = 'descricao'
+      Size = 95
+    end
+    object ClientDataSet1qtde: TSingleField
+      FieldName = 'qtde'
+      Origin = 'qtde'
+    end
+    object ClientDataSet1idumedida: TIntegerField
+      FieldName = 'idumedida'
+      Origin = 'idumedida'
+    end
+    object ClientDataSet1idcat: TIntegerField
+      FieldName = 'idcat'
+      Origin = 'idcat'
+    end
+    object ClientDataSet1idsubcat: TIntegerField
+      FieldName = 'idsubcat'
+      Origin = 'idsubcat'
+    end
+  end
+end

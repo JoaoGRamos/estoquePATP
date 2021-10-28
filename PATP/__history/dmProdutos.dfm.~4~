@@ -1,0 +1,27 @@
+object dtmProdutos: TdtmProdutos
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 354
+  Width = 374
+  object FDQuery1: TFDQuery
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from produto')
+    Left = 88
+    Top = 56
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = FDQuery1
+    Left = 88
+    Top = 112
+  end
+  object ClientDataSet1: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 88
+    Top = 176
+  end
+end
