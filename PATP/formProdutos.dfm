@@ -14,11 +14,12 @@ object frmProdutos: TfrmProdutos
   PixelsPerInch = 96
   TextHeight = 13
   object DBNavigator1: TDBNavigator
-    Left = 8
+    Left = 251
     Top = 8
-    Width = 480
+    Width = 165
     Height = 25
     DataSource = DataSource1
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
     TabOrder = 0
   end
   object DBGrid1: TDBGrid
@@ -34,8 +35,40 @@ object frmProdutos: TfrmProdutos
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
   end
+  object Novo: TButton
+    Left = 8
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Novo'
+    TabOrder = 2
+  end
+  object Editar: TButton
+    Left = 89
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Editar'
+    TabOrder = 3
+  end
+  object Deletar: TButton
+    Left = 170
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Deletar'
+    TabOrder = 4
+  end
+  object Fechar: TButton
+    Left = 422
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = 'Fechar'
+    TabOrder = 5
+  end
   object DataSource1: TDataSource
-    DataSet = dtmProdutos.ClientDataSet1
+    DataSet = dtmProdutos.FDQuery2
     Left = 32
     Top = 344
   end

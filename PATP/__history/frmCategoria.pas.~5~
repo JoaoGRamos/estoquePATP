@@ -1,0 +1,42 @@
+unit frmCategoria;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ExtCtrls, Vcl.DBCtrls,
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls;
+
+type
+  TformCategoria = class(TForm)
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    Novo: TButton;
+    Editar: TButton;
+    Excluir: TButton;
+    Fechar: TButton;
+    DBNavigator1: TDBNavigator;
+  private
+    { Private declarations }
+    procedure AbrirCadastro(novo: Boolean);
+  public
+    { Public declarations }
+  end;
+
+var
+  formCategoria: TformCategoria;
+
+implementation
+
+{$R *.dfm}
+
+uses dmCategorias;
+
+{ TformCategoria }
+
+procedure TformCategoria.AbrirCadastro(novo: Boolean);
+begin
+
+end;
+
+end.

@@ -1,4 +1,4 @@
-object DataModule7: TDataModule7
+object dtmFornecedores: TdtmFornecedores
   OldCreateOrder = False
   Height = 349
   Width = 470

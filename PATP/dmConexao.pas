@@ -29,7 +29,7 @@ implementation
 
 procedure TdtmConexao.DataModuleCreate(Sender: TObject);
 begin
-  FDConnection1.Connected := True;
+  FDConnection1.Connected := True
 end;
 
 end.

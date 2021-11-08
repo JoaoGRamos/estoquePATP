@@ -9,7 +9,7 @@ uses
   Datasnap.DBClient, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
-  TDataModule7 = class(TDataModule)
+  TdtmFornecedores = class(TDataModule)
     FDQuery1: TFDQuery;
     ClientDataSet1: TClientDataSet;
     DataSetProvider1: TDataSetProvider;
@@ -20,7 +20,7 @@ type
   end;
 
 var
-  DataModule7: TDataModule7;
+  dtmFornecedores: TdtmFornecedores;
 
 implementation
 

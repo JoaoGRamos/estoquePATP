@@ -26,41 +26,48 @@ object dtmProdutos: TdtmProdutos
     OnReconcileError = ClientDataSet1ReconcileError
     Left = 88
     Top = 176
-    object ClientDataSet1idproduto: TAutoIncField
-      DisplayWidth = 10
+  end
+  object FDQuery2: TFDQuery
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from produto')
+    Left = 184
+    Top = 64
+    object FDQuery2idproduto: TFDAutoIncField
       FieldName = 'idproduto'
       Origin = 'idproduto'
       ProviderFlags = [pfInWhere, pfInKey]
     end
-    object ClientDataSet1nome: TStringField
-      DisplayWidth = 8
+    object FDQuery2nome: TStringField
+      AutoGenerateValue = arDefault
       FieldName = 'nome'
       Origin = 'nome'
       Size = 95
     end
-    object ClientDataSet1descricao: TStringField
-      DisplayWidth = 11
+    object FDQuery2descricao: TStringField
+      AutoGenerateValue = arDefault
       FieldName = 'descricao'
       Origin = 'descricao'
       Size = 95
     end
-    object ClientDataSet1qtde: TSingleField
-      DisplayWidth = 10
+    object FDQuery2qtde: TSingleField
+      AutoGenerateValue = arDefault
       FieldName = 'qtde'
       Origin = 'qtde'
     end
-    object ClientDataSet1idumedida: TIntegerField
-      DisplayWidth = 10
+    object FDQuery2idumedida: TIntegerField
+      AutoGenerateValue = arDefault
       FieldName = 'idumedida'
       Origin = 'idumedida'
     end
-    object ClientDataSet1idcat: TIntegerField
-      DisplayWidth = 10
+    object FDQuery2idcat: TIntegerField
+      AutoGenerateValue = arDefault
       FieldName = 'idcat'
       Origin = 'idcat'
     end
-    object ClientDataSet1idsubcat: TIntegerField
-      DisplayWidth = 10
+    object FDQuery2idsubcat: TIntegerField
+      AutoGenerateValue = arDefault
       FieldName = 'idsubcat'
       Origin = 'idsubcat'
     end

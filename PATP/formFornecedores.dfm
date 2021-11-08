@@ -2,8 +2,8 @@ object frmFornecedores: TfrmFornecedores
   Left = 0
   Top = 0
   Caption = 'frmFornecedores'
-  ClientHeight = 389
-  ClientWidth = 538
+  ClientHeight = 498
+  ClientWidth = 829
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,10 +14,10 @@ object frmFornecedores: TfrmFornecedores
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
-    Left = 80
-    Top = 136
-    Width = 320
-    Height = 120
+    Left = 8
+    Top = 72
+    Width = 813
+    Height = 418
     DataSource = DataSource1
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -27,16 +27,16 @@ object frmFornecedores: TfrmFornecedores
     TitleFont.Style = []
   end
   object DBNavigator1: TDBNavigator
-    Left = 104
-    Top = 80
-    Width = 240
-    Height = 25
+    Left = 8
+    Top = 16
+    Width = 620
+    Height = 33
     DataSource = DataSource1
     TabOrder = 1
   end
   object DataSource1: TDataSource
-    DataSet = DataModule7.ClientDataSet1
-    Left = 272
-    Top = 312
+    DataSet = dtmFornecedores.FDQuery1
+    Left = 424
+    Top = 432
   end
 end

@@ -1,0 +1,75 @@
+object frmCompra: TfrmCompra
+  Left = 0
+  Top = 0
+  Caption = 'Compra'
+  ClientHeight = 361
+  ClientWidth = 641
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 32
+    Top = 72
+    Width = 570
+    Height = 265
+    DataSource = DataSource1
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 328
+    Top = 31
+    Width = 165
+    Height = 25
+    DataSource = DataSource1
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+    TabOrder = 1
+  end
+  object Novo: TButton
+    Left = 32
+    Top = 32
+    Width = 75
+    Height = 25
+    Caption = 'Novo'
+    TabOrder = 2
+  end
+  object Editar: TButton
+    Left = 128
+    Top = 32
+    Width = 75
+    Height = 25
+    Caption = 'Editar'
+    TabOrder = 3
+  end
+  object Deletar: TButton
+    Left = 224
+    Top = 32
+    Width = 75
+    Height = 25
+    Caption = 'Deletar'
+    TabOrder = 4
+  end
+  object Fechar: TButton
+    Left = 511
+    Top = 32
+    Width = 75
+    Height = 25
+    Caption = 'Fechar'
+    TabOrder = 5
+  end
+  object DataSource1: TDataSource
+    DataSet = DataModule2.FDQuery2
+    Left = 576
+    Top = 312
+  end
+end

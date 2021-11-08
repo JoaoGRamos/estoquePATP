@@ -6,21 +6,25 @@ uses
   System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
-  Datasnap.DBClient, Datasnap.Provider, FireDAC.Comp.DataSet,
+  Datasnap.DBClient, Datasnap.Provider, FireDAC.Comp.DataSet, Dialogs,
   FireDAC.Comp.Client;
 
 type
-  TDataModule2 = class(TDataModule)
+  TdtmCompra = class(TDataModule)
     FDQuery1: TFDQuery;
     DataSetProvider1: TDataSetProvider;
     ClientDataSet1: TClientDataSet;
-    ClientDataSet1idproduto: TAutoIncField;
-    ClientDataSet1nome: TStringField;
-    ClientDataSet1descricao: TStringField;
-    ClientDataSet1qtde: TSingleField;
-    ClientDataSet1idumedida: TIntegerField;
-    ClientDataSet1idcat: TIntegerField;
-    ClientDataSet1idsubcat: TIntegerField;
+    FDQuery2: TFDQuery;
+    FDQuery2idcompra: TFDAutoIncField;
+    FDQuery2datacompra: TDateField;
+    FDQuery2precototal: TStringField;
+    FDQuery2idfornecedor: TIntegerField;
+    procedure ClientDataSet1AfterDelete(DataSet: TDataSet);
+    procedure ClientDataSet1AfterPost(DataSet: TDataSet);
+    procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,7 +32,7 @@ type
   end;
 
 var
-  DataModule2: TDataModule2;
+  dtmCompra: TdtmCompra;
 
 implementation
 
@@ -37,5 +41,31 @@ implementation
 uses dmConexao;
 
 {$R *.dfm}
+
+procedure TdtmCompra.ClientDataSet1AfterDelete(DataSet: TDataSet);
+begin
+  if ClientDataSet1.ChangeCount > 0 then
+  ClientDataSet1.ApplyUpdates(0);
+end;
+
+procedure TdtmCompra.ClientDataSet1AfterPost(DataSet: TDataSet);
+begin
+  if ClientDataSet1.ChangeCount > 0 then
+  ClientDataSet1.ApplyUpdates(0);
+end;
+
+procedure TdtmCompra.ClientDataSet1ReconcileError(
+  DataSet: TCustomClientDataSet; E: EReconcileError; UpdateKind: TUpdateKind;
+  var Action: TReconcileAction);
+begin
+  ShowMessage(E.Message);
+  Action := raCancel;
+end;
+
+procedure TdtmCompra.DataModuleCreate(Sender: TObject);
+begin
+  FDQuery2.Open;
+  ClientDataSet1.Open;
+end;
 
 end.

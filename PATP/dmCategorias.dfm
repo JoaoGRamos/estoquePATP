@@ -1,13 +1,13 @@
-object DataModule3: TDataModule3
+object dtmCategoria: TdtmCategoria
   OldCreateOrder = False
+  OnCreate = DataModuleCreate
   Height = 323
   Width = 462
   object FDQuery1: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
-      'from produto')
+      'from categoria')
     Left = 192
     Top = 64
   end
@@ -17,49 +17,41 @@ object DataModule3: TDataModule3
     Top = 120
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
+    AfterPost = ClientDataSet1AfterPost
+    AfterDelete = ClientDataSet1AfterDelete
+    OnReconcileError = ClientDataSet1ReconcileError
     Left = 192
     Top = 184
-    object ClientDataSet1idproduto: TAutoIncField
-      DisplayWidth = 10
-      FieldName = 'idproduto'
-      Origin = 'idproduto'
-      ProviderFlags = [pfInWhere, pfInKey]
+    object ClientDataSet1idcat: TAutoIncField
+      FieldName = 'idcat'
+      ReadOnly = True
     end
-    object ClientDataSet1nome: TStringField
-      DisplayWidth = 8
-      FieldName = 'nome'
-      Origin = 'nome'
+    object ClientDataSet1catnome: TStringField
+      FieldName = 'catnome'
       Size = 95
     end
-    object ClientDataSet1descricao: TStringField
-      DisplayWidth = 11
-      FieldName = 'descricao'
-      Origin = 'descricao'
-      Size = 95
-    end
-    object ClientDataSet1qtde: TSingleField
-      DisplayWidth = 10
-      FieldName = 'qtde'
-      Origin = 'qtde'
-    end
-    object ClientDataSet1idumedida: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'idumedida'
-      Origin = 'idumedida'
-    end
-    object ClientDataSet1idcat: TIntegerField
-      DisplayWidth = 10
+  end
+  object FDQuery2: TFDQuery
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from categoria')
+    Left = 272
+    Top = 64
+    object FDQuery2idcat: TFDAutoIncField
       FieldName = 'idcat'
       Origin = 'idcat'
+      ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
-    object ClientDataSet1idsubcat: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'idsubcat'
-      Origin = 'idsubcat'
+    object FDQuery2catnome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'catnome'
+      Origin = 'catnome'
+      Size = 95
     end
   end
 end

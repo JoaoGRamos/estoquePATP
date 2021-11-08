@@ -3,6 +3,7 @@ object DataModule6: TDataModule6
   Height = 320
   Width = 461
   object FDQuery1: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -16,7 +17,6 @@ object DataModule6: TDataModule6
     Top = 112
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'

@@ -1,0 +1,52 @@
+unit formCompra;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TfrmCompra = class(TForm)
+    DBGrid1: TDBGrid;
+    DBNavigator1: TDBNavigator;
+    Novo: TButton;
+    Editar: TButton;
+    Deletar: TButton;
+    Fechar: TButton;
+    DataSource1: TDataSource;
+    procedure FecharClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure AbrirCadastro(Novo: Boolean);
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCompra: TfrmCompra;
+
+implementation
+
+{$R *.dfm}
+
+uses dmCompra, EdCompra;
+
+procedure TfrmCompra.AbrirCadastro(Novo: Boolean);
+begin
+  EdCompra := TEditCompra.Create(Self);
+  try
+    if Novo then
+       dmCompra.
+  finally
+
+  end;
+end;
+
+procedure TfrmCompra.FecharClick(Sender: TObject);
+begin
+ Close;
+end;
+
+end.
