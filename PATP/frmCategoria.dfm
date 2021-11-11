@@ -2,8 +2,8 @@ object formCategoria: TformCategoria
   Left = 0
   Top = 0
   Caption = 'Categoria'
-  ClientHeight = 424
-  ClientWidth = 796
+  ClientHeight = 376
+  ClientWidth = 656
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -52,6 +52,7 @@ object formCategoria: TformCategoria
     Height = 25
     Caption = 'Excluir'
     TabOrder = 3
+    OnClick = ExcluirClick
   end
   object Fechar: TButton
     Left = 421

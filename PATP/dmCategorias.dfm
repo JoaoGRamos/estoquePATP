@@ -4,6 +4,7 @@ object dtmCategoria: TdtmCategoria
   Height = 323
   Width = 462
   object FDQuery1: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -17,6 +18,7 @@ object dtmCategoria: TdtmCategoria
     Top = 120
   end
   object ClientDataSet1: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
@@ -27,14 +29,18 @@ object dtmCategoria: TdtmCategoria
     Top = 184
     object ClientDataSet1idcat: TAutoIncField
       FieldName = 'idcat'
+      Origin = 'idcat'
+      ProviderFlags = [pfInWhere, pfInKey]
       ReadOnly = True
     end
     object ClientDataSet1catnome: TStringField
       FieldName = 'catnome'
+      Origin = 'catnome'
       Size = 95
     end
   end
   object FDQuery2: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'

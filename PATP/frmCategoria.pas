@@ -20,6 +20,7 @@ type
     procedure NovoClick(Sender: TObject);
     procedure EditarClick(Sender: TObject);
     procedure FecharClick(Sender: TObject);
+    procedure ExcluirClick(Sender: TObject);
   private
     { Private declarations }
     procedure AbrirCadastro(Novo: Boolean);
@@ -65,6 +66,16 @@ end;
 procedure TformCategoria.EditarClick(Sender: TObject);
 begin
   AbrirCadastro(dtmCategoria.FDQuery2.IsEmpty);
+end;
+
+procedure TformCategoria.ExcluirClick(Sender: TObject);
+begin
+    if Application.MessageBox(pchar('Confirma exclusão desse registro?'), pchar('Exclusão'), mb_yesno) = IDYES then
+    if dtmCategoria.ClientDataSet1.Locate('idcat', dtmCategoria.FDQuery2idcat.AsInteger, []) then
+    begin
+      dtmCategoria.ClientDataSet1.Delete;
+      dtmCategoria.FDQuery2.Refresh;
+    end
 end;
 
 procedure TformCategoria.FecharClick(Sender: TObject);

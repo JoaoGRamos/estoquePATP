@@ -16,6 +16,7 @@ type
     Deletar: TButton;
     Fechar: TButton;
     DataSource1: TDataSource;
+    Panel1: TPanel;
     procedure FecharClick(Sender: TObject);
     procedure NovoClick(Sender: TObject);
     procedure EditarClick(Sender: TObject);

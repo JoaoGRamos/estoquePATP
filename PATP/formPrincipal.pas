@@ -13,8 +13,6 @@ type
     Label2: TLabel;
     Button2: TButton;
     Button3: TButton;
-    Button5: TButton;
-    Button6: TButton;
     Button7: TButton;
     Button8: TButton;
     Button9: TButton;
@@ -23,6 +21,7 @@ type
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button9Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,6 +81,21 @@ begin
     end;
   finally
     FreeAndNil(dtmCategoria);
+  end;
+end;
+
+procedure TfrmPrincipal.Button7Click(Sender: TObject);
+begin
+  dtmClientes := TdtmClientes.Create(self);
+  try
+    frmClientes := TfrmClientes.Create(Self);
+    try
+      frmClientes.ShowModal;
+    finally
+      FreeAndNil(frmClientes);
+    end;
+  finally
+    FreeAndNil(dtmClientes);
   end;
 end;
 

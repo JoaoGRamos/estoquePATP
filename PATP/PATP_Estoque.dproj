@@ -130,7 +130,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="dmClientes.pas">
-            <Form>DataModule6</Form>
+            <Form>dtmClientes</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
@@ -158,7 +158,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="formClientes.pas">
-            <Form>Form1</Form>
+            <Form>frmClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="frmCategoria.pas">
@@ -175,6 +175,10 @@
         </DCCReference>
         <DCCReference Include="EdCompra.pas">
             <Form>EditCompra</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="EdClientes.pas">
+            <Form>EdCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

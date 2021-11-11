@@ -1,0 +1,39 @@
+unit dmClientes;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
+  Datasnap.DBClient, Datasnap.Provider, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+
+type
+  TdtmClientes = class(TDataModule)
+    FDQuery1: TFDQuery;
+    DataSetProvider1: TDataSetProvider;
+    ClientDataSet1: TClientDataSet;
+    FDQuery2: TFDQuery;
+    FDQuery2idcliente: TFDAutoIncField;
+    FDQuery2nome: TStringField;
+    FDQuery2cpf: TStringField;
+    FDQuery2fone: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dtmClientes: TdtmClientes;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses dmConexao;
+
+{$R *.dfm}
+
+end.

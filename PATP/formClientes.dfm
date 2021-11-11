@@ -1,9 +1,9 @@
-object Form1: TForm1
+object frmClientes: TfrmClientes
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 349
-  ClientWidth = 447
+  Caption = 'frmClientes'
+  ClientHeight = 379
+  ClientWidth = 640
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,29 +14,146 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
-    Left = 32
-    Top = 64
-    Width = 385
-    Height = 217
+    Left = 0
+    Top = 104
+    Width = 633
+    Height = 273
     DataSource = DataSource1
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'idcliente'
+        Width = 50
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nome'
+        Width = 150
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cpf'
+        Width = 120
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'fone'
+        Width = 100
+        Visible = True
+      end>
   end
-  object DBNavigator1: TDBNavigator
-    Left = 96
-    Top = 24
-    Width = 240
-    Height = 25
-    DataSource = DataSource1
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 633
+    Height = 49
+    Caption = 'Panel1'
     TabOrder = 1
+    object Cadastro: TLabel
+      Left = 14
+      Top = 3
+      Width = 48
+      Height = 13
+      Caption = 'Cadastro:'
+    end
+    object DBNavigator1: TDBNavigator
+      Left = 296
+      Top = 18
+      Width = 190
+      Height = 25
+      DataSource = DataSource1
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
+      TabOrder = 0
+    end
+    object Novo: TButton
+      Left = 37
+      Top = 18
+      Width = 75
+      Height = 25
+      Caption = 'Novo'
+      TabOrder = 1
+      OnClick = NovoClick
+    end
+    object Editar: TButton
+      Left = 118
+      Top = 18
+      Width = 75
+      Height = 25
+      Caption = 'Editar'
+      TabOrder = 2
+      OnClick = EditarClick
+    end
+    object Deletar: TButton
+      Left = 199
+      Top = 18
+      Width = 75
+      Height = 25
+      Caption = 'Deletar'
+      TabOrder = 3
+      OnClick = DeletarClick
+    end
+    object Fechar: TButton
+      Left = 528
+      Top = 18
+      Width = 75
+      Height = 25
+      Caption = 'Fechar'
+      TabOrder = 4
+      OnClick = FecharClick
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 49
+    Width = 633
+    Height = 56
+    Caption = 'Panel2'
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 14
+      Top = 6
+      Width = 46
+      Height = 13
+      Caption = 'Pesquisa:'
+    end
+    object Label2: TLabel
+      Left = 69
+      Top = 18
+      Width = 31
+      Height = 13
+      Caption = 'Nome:'
+    end
+    object pNome: TEdit
+      Left = 108
+      Top = 15
+      Width = 157
+      Height = 21
+      TabOrder = 0
+    end
+    object Pesquisar: TButton
+      Left = 304
+      Top = 13
+      Width = 89
+      Height = 25
+      Caption = 'Pesquisar'
+      TabOrder = 1
+      OnClick = PesquisarClick
+    end
   end
   object DataSource1: TDataSource
-    DataSet = DataModule6.ClientDataSet1
-    Left = 16
-    Top = 304
+    DataSet = dtmClientes.FDQuery2
+    Left = 576
+    Top = 328
   end
 end

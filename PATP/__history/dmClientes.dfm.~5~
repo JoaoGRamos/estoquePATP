@@ -1,0 +1,56 @@
+object dtmClientes: TdtmClientes
+  OldCreateOrder = False
+  Height = 320
+  Width = 461
+  object FDQuery1: TFDQuery
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from cliente')
+    Left = 88
+    Top = 56
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = FDQuery1
+    Left = 88
+    Top = 112
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 88
+    Top = 176
+  end
+  object FDQuery2: TFDQuery
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from cliente')
+    Left = 192
+    Top = 64
+    object FDQuery2idcliente: TFDAutoIncField
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQuery2nome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 95
+    end
+    object FDQuery2cpf: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'cpf'
+      Origin = 'cpf'
+      Size = 95
+    end
+    object FDQuery2fone: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'fone'
+      Origin = 'fone'
+      Size = 95
+    end
+  end
+end
