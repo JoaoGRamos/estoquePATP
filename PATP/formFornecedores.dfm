@@ -26,6 +26,7 @@ object frmFornecedores: TfrmFornecedores
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False
@@ -86,6 +87,7 @@ object frmFornecedores: TfrmFornecedores
       Height = 25
       Caption = 'Novo'
       TabOrder = 1
+      OnClick = NovoClick
     end
     object Editar: TButton
       Left = 174
@@ -94,6 +96,7 @@ object frmFornecedores: TfrmFornecedores
       Height = 25
       Caption = 'Editar'
       TabOrder = 2
+      OnClick = EditarClick
     end
     object Deletar: TButton
       Left = 271
@@ -102,6 +105,7 @@ object frmFornecedores: TfrmFornecedores
       Height = 25
       Caption = 'Deletar'
       TabOrder = 3
+      OnClick = DeletarClick
     end
     object Fechar: TButton
       Left = 600
@@ -110,6 +114,7 @@ object frmFornecedores: TfrmFornecedores
       Height = 25
       Caption = 'Fechar'
       TabOrder = 4
+      OnClick = FecharClick
     end
   end
   object Panel2: TPanel
@@ -153,8 +158,9 @@ object frmFornecedores: TfrmFornecedores
       Height = 25
       Caption = 'Pesquisar'
       TabOrder = 1
+      OnClick = PesquisarClick
     end
-    object Edit1: TEdit
+    object pCNPJ: TEdit
       Left = 358
       Top = 15
       Width = 163
@@ -163,7 +169,7 @@ object frmFornecedores: TfrmFornecedores
     end
   end
   object DataSource1: TDataSource
-    DataSet = dtmFornecedores.FDQuery1
+    DataSet = dtmFornecedores.FDQuery2
     Left = 488
     Top = 232
   end

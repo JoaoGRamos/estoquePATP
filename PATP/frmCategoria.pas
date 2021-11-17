@@ -19,7 +19,7 @@ type
     DBNavigator1: TDBNavigator;
     Panel1: TPanel;
     Panel2: TPanel;
-    Edit1: TEdit;
+    EdNome: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     BtPesquisa: TButton;
@@ -27,6 +27,7 @@ type
     procedure EditarClick(Sender: TObject);
     procedure FecharClick(Sender: TObject);
     procedure ExcluirClick(Sender: TObject);
+    procedure BtPesquisaClick(Sender: TObject);
   private
     { Private declarations }
     procedure AbrirCadastro(Novo: Boolean);
@@ -67,6 +68,27 @@ begin
   finally
     FreeAndNil(frmCadCat);
   end;
+end;
+
+procedure TformCategoria.BtPesquisaClick(Sender: TObject);
+begin
+  with dtmCategoria.FDQuery2 do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select * from categoria');
+    SQL.Add('where (1=1)');
+
+    if trim(EdNome.Text) <> '' then
+    begin
+      SQL.Add('and categoria.catnome like ' +
+        QuotedStr('%' + EdNome.Text + '%'));
+
+    end;
+    SQL.Add('order by categoria.catnome and categoria.idcat');
+      Open;
+    end;
+
 end;
 
 procedure TformCategoria.EditarClick(Sender: TObject);

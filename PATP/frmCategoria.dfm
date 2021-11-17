@@ -98,7 +98,7 @@ object formCategoria: TformCategoria
       Height = 13
       Caption = 'Nome:'
     end
-    object Edit1: TEdit
+    object EdNome: TEdit
       Left = 157
       Top = 13
       Width = 171
@@ -113,6 +113,7 @@ object formCategoria: TformCategoria
     Height = 23
     Caption = 'Pesquisar'
     TabOrder = 3
+    OnClick = BtPesquisaClick
   end
   object DataSource1: TDataSource
     DataSet = dtmCategoria.FDQuery2

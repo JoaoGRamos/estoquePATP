@@ -58,7 +58,6 @@ object frmClientes: TfrmClientes
     Top = 0
     Width = 641
     Height = 49
-    Caption = 'Panel1'
     TabOrder = 1
     object Cadastro: TLabel
       Left = 14

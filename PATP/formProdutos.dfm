@@ -19,6 +19,7 @@ object frmProdutos: TfrmProdutos
     Width = 759
     Height = 278
     DataSource = DataSource1
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -76,6 +77,7 @@ object frmProdutos: TfrmProdutos
       Height = 25
       Caption = 'Novo'
       TabOrder = 0
+      OnClick = NovoClick
     end
     object Fechar: TButton
       Left = 606
@@ -84,6 +86,7 @@ object frmProdutos: TfrmProdutos
       Height = 25
       Caption = 'Fechar'
       TabOrder = 1
+      OnClick = FecharClick
     end
     object Editar: TButton
       Left = 185
@@ -92,6 +95,7 @@ object frmProdutos: TfrmProdutos
       Height = 25
       Caption = 'Editar'
       TabOrder = 2
+      OnClick = EditarClick
     end
     object Deletar: TButton
       Left = 282
@@ -100,6 +104,7 @@ object frmProdutos: TfrmProdutos
       Height = 25
       Caption = 'Deletar'
       TabOrder = 3
+      OnClick = DeletarClick
     end
     object DBNavigator1: TDBNavigator
       Left = 412

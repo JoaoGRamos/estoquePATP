@@ -16,7 +16,6 @@ object DataModule5: TDataModule5
     Top = 120
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'

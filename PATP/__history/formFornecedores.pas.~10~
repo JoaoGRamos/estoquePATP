@@ -1,0 +1,99 @@
+unit formFornecedores;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ExtCtrls, Vcl.DBCtrls,
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls;
+
+type
+  TfrmFornecedores = class(TForm)
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    Panel1: TPanel;
+    Cadastro: TLabel;
+    DBNavigator1: TDBNavigator;
+    Novo: TButton;
+    Editar: TButton;
+    Deletar: TButton;
+    Fechar: TButton;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    pNome: TEdit;
+    Pesquisar: TButton;
+    Label3: TLabel;
+    Edit1: TEdit;
+    procedure PesquisarClick(Sender: TObject);
+    procedure DeletarClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure AbrirCadastro(novo: Boolean);
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFornecedores: TfrmFornecedores;
+
+implementation
+
+{$R *.dfm}
+
+uses dmFornecedores, EdFornecedores;
+
+procedure TfrmFornecedores.AbrirCadastro(novo: boolean);
+begin
+  EdFornecedores := Tedt
+  try
+    if novo then
+      dtmClientes.ClientDataSet1.Append
+    else
+    begin
+      dtmClientes.ClientDataSet1.Locate('idcliente', dtmClientes.FDQuery2idcliente.AsInteger, []);
+      dtmClientes.ClientDataSet1.Edit;
+    end;
+
+    if EdCliente.ShowModal = mrOk then
+      dtmClientes.ClientDataSet1.Post
+    else
+      dtmClientes.ClientDataSet1.Cancel;
+    dtmClientes.FDQuery2.Refresh;
+  finally
+    FreeAndNil(EdCliente);
+  end;
+end;
+
+procedure TfrmFornecedores.DeletarClick(Sender: TObject);
+begin
+  if Application.MessageBox(pchar('Confirma exclusão desse registro?'), pchar('Exclusão'), mb_yesno) = IDYES then
+    if dtmFornecedores.ClientDataSet1.Locate('idfornecedor', dtmFornecedores.FDQuery2idfornecedor.AsInteger, []) then
+    begin
+      dtmFornecedores.ClientDataSet1.Delete;
+      dtmFornecedores.FDQuery2.Refresh;
+    end
+end;
+
+procedure TfrmFornecedores.PesquisarClick(Sender: TObject);
+begin
+  with dtmFornecedores.FDQuery2 do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select * from fornecedor');
+    SQL.Add('where (1=1)');
+
+    if trim(pNome.Text) <> '' then
+    begin
+      SQL.Add('and fornecedor.nome like ' +
+        QuotedStr('%' + pNome.Text + '%'));
+
+    end;
+    SQL.Add('order by fornecedor.nome and fornecedor.idfornecedor');
+      Open;
+    end;
+
+end;
+
+end.

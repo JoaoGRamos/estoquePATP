@@ -6,7 +6,6 @@ uses
   dmConexao in 'dmConexao.pas' {dtmConexao: TDataModule},
   dmProdutos in 'dmProdutos.pas' {dtmProdutos: TDataModule},
   dmCategorias in 'dmCategorias.pas' {dtmCategoria: TDataModule},
-  dmSubCategorias in 'dmSubCategorias.pas' {DataModule4: TDataModule},
   dmUnidades in 'dmUnidades.pas' {DataModule5: TDataModule},
   dmClientes in 'dmClientes.pas' {dtmClientes: TDataModule},
   dmFornecedores in 'dmFornecedores.pas' {dtmFornecedores: TDataModule},
@@ -19,7 +18,9 @@ uses
   Campos in 'Campos.pas' {frmCadCat},
   formCompra in 'formCompra.pas' {frmCompra},
   EdCompra in 'EdCompra.pas' {EditCompra},
-  EdClientes in 'EdClientes.pas' {EdCliente};
+  EdClientes in 'EdClientes.pas' {EdCliente},
+  EdProdutos in 'EdProdutos.pas' {EdtProdutos},
+  EdFornecedores in 'EdFornecedores.pas' {EdtFornecedores};
 
 {$R *.res}
 
@@ -28,6 +29,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TdtmConexao, dtmConexao);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TEdCliente, EdCliente);
+  Application.CreateForm(TdtmConexao, dtmConexao);
   Application.Run;
 end.

@@ -4,6 +4,7 @@ object dtmClientes: TdtmClientes
   Height = 320
   Width = 461
   object FDQuery1: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -40,6 +41,7 @@ object dtmClientes: TdtmClientes
       FieldName = 'idcliente'
       Origin = 'idcliente'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQuery2nome: TStringField
       AutoGenerateValue = arDefault

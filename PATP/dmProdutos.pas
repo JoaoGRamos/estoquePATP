@@ -26,6 +26,7 @@ type
     procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;
       E: EReconcileError; UpdateKind: TUpdateKind;
       var Action: TReconcileAction);
+    procedure ClientDataSet1AfterDelete(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -43,9 +44,16 @@ uses dmConexao;
 
 {$R *.dfm}
 
+procedure TdtmProdutos.ClientDataSet1AfterDelete(DataSet: TDataSet);
+begin
+  if ClientDataSet1.ChangeCount > 0 then
+  ClientDataSet1.ApplyUpdates(0);
+end;
+
 procedure TdtmProdutos.ClientDataSet1AfterPost(DataSet: TDataSet);
 begin
-  ClientDataSet1.ApplyUpdates(-1);
+  if ClientDataSet1.ChangeCount > 0 then
+  ClientDataSet1.ApplyUpdates(0);
 end;
 
 procedure TdtmProdutos.ClientDataSet1ReconcileError(
