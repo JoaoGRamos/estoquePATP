@@ -28,6 +28,7 @@ object dtmProdutos: TdtmProdutos
     Top = 176
   end
   object FDQuery2: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -38,6 +39,7 @@ object dtmProdutos: TdtmProdutos
       FieldName = 'idproduto'
       Origin = 'idproduto'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQuery2nome: TStringField
       AutoGenerateValue = arDefault

@@ -16,6 +16,13 @@ type
     Editar: TButton;
     Deletar: TButton;
     Fechar: TButton;
+    Panel1: TPanel;
+    Cadastro: TLabel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Button1: TButton;
   private
     { Private declarations }
   public

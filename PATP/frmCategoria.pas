@@ -17,6 +17,12 @@ type
     Excluir: TButton;
     Fechar: TButton;
     DBNavigator1: TDBNavigator;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    BtPesquisa: TButton;
     procedure NovoClick(Sender: TObject);
     procedure EditarClick(Sender: TObject);
     procedure FecharClick(Sender: TObject);

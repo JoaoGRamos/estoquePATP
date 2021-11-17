@@ -56,7 +56,7 @@ object frmClientes: TfrmClientes
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 633
+    Width = 641
     Height = 49
     Caption = 'Panel1'
     TabOrder = 1
@@ -118,7 +118,6 @@ object frmClientes: TfrmClientes
     Top = 49
     Width = 633
     Height = 56
-    Caption = 'Panel2'
     TabOrder = 2
     object Label1: TLabel
       Left = 14
@@ -142,7 +141,7 @@ object frmClientes: TfrmClientes
       TabOrder = 0
     end
     object Pesquisar: TButton
-      Left = 304
+      Left = 296
       Top = 13
       Width = 89
       Height = 25

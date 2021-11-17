@@ -10,6 +10,7 @@ object dtmConexao: TdtmConexao
       'Password=Noiskita546'
       'Server=localhost'
       'DriverID=MySQL')
+    Connected = True
     LoginPrompt = False
     Left = 168
     Top = 88
