@@ -21,6 +21,19 @@ type
     FDQuery2idumedida: TIntegerField;
     FDQuery2idcat: TIntegerField;
     FDQuery2idsubcat: TIntegerField;
+    FDQuery3: TFDQuery;
+    FDQuery3idumedida: TFDAutoIncField;
+    FDQuery3umedida: TStringField;
+    FDQuery2idumedida_1: TIntegerField;
+    FDQuery2umedida: TStringField;
+    ClientDataSet1idproduto: TAutoIncField;
+    ClientDataSet1nome: TStringField;
+    ClientDataSet1descricao: TStringField;
+    ClientDataSet1qtde: TSingleField;
+    ClientDataSet1idumedida: TIntegerField;
+    ClientDataSet1idcat: TIntegerField;
+    ClientDataSet1idsubcat: TIntegerField;
+    ClientDataSet1UnidadeMedida: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure ClientDataSet1AfterPost(DataSet: TDataSet);
     procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;
@@ -66,6 +79,8 @@ end;
 
 procedure TdtmProdutos.DataModuleCreate(Sender: TObject);
 begin
+  FDQuery2.Open;
+  FDQuery3.Open;
   ClientDataSet1.Open;
 end;
 

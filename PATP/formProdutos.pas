@@ -21,12 +21,14 @@ type
     Panel2: TPanel;
     Label1: TLabel;
     Label2: TLabel;
-    Edit1: TEdit;
+    EdNome: TEdit;
     Button1: TButton;
     procedure FecharClick(Sender: TObject);
     procedure DeletarClick(Sender: TObject);
     procedure NovoClick(Sender: TObject);
     procedure EditarClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     procedure AbrirCadastro(novo: Boolean);
@@ -63,6 +65,33 @@ begin
   finally
     FreeAndNil(EdtProdutos);
   end;
+end;
+
+procedure TfrmProdutos.Button1Click(Sender: TObject);
+begin
+    with dtmProdutos.FDQuery2 do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select * from produto p');
+    SQL.Add('inner join unidademedida u ');
+    SQL.Add('on p.idumedida = u.idumedida');
+    SQL.Add('where (1=1)');
+
+    if trim(EdNome.Text) <> '' then
+    begin
+      SQL.Add('and p.nome like ' +
+        QuotedStr('%' + EdNome.Text + '%'));
+
+    end;
+    SQL.Add('order by p.nome and p.idproduto');
+      Open;
+    end;
+end;
+
+procedure TfrmProdutos.DBGrid1DblClick(Sender: TObject);
+begin
+  AbrirCadastro(dtmProdutos.FDQuery2.IsEmpty);
 end;
 
 procedure TfrmProdutos.DeletarClick(Sender: TObject);

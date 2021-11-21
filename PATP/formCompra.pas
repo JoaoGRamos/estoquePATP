@@ -17,9 +17,14 @@ type
     Fechar: TButton;
     DataSource1: TDataSource;
     Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure FecharClick(Sender: TObject);
     procedure NovoClick(Sender: TObject);
     procedure EditarClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure DeletarClick(Sender: TObject);
   private
     { Private declarations }
     procedure AbrirCadastro(Novo: Boolean);
@@ -57,6 +62,22 @@ begin
   finally
     FreeAndNil(EditCompra);
   end;
+end;
+
+procedure TfrmCompra.DBGrid1DblClick(Sender: TObject);
+begin
+  AbrirCadastro(dtmCompra.FDQuery2.IsEmpty);
+end;
+
+procedure TfrmCompra.DeletarClick(Sender: TObject);
+begin
+  if Application.MessageBox(pchar('Confirma exclusão desse registro?'), pchar('Exclusão'), mb_yesno) = IDYES then
+    if dtmCompra.ClientDataSet1.Locate('idcompra', dtmCompra.FDQuery2idcompra.AsInteger, []) then
+    begin
+      dtmCompra.ClientDataSet1.Delete;
+      dtmCompra.FDQuery2.Refresh;
+    end;
+
 end;
 
 procedure TfrmCompra.EditarClick(Sender: TObject);

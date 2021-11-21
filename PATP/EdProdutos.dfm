@@ -14,36 +14,43 @@ object EdtProdutos: TEdtProdutos
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 32
-    Top = 21
+    Left = 16
+    Top = 5
     Width = 15
     Height = 13
     Caption = 'ID:'
   end
   object Label2: TLabel
-    Left = 32
-    Top = 67
+    Left = 16
+    Top = 51
     Width = 31
     Height = 13
     Caption = 'Nome:'
   end
   object Label3: TLabel
-    Left = 32
-    Top = 161
+    Left = 16
+    Top = 145
     Width = 50
     Height = 13
     Caption = 'Descri'#231#227'o:'
   end
   object Label4: TLabel
-    Left = 32
-    Top = 115
+    Left = 16
+    Top = 99
     Width = 60
     Height = 13
     Caption = 'Quantidade:'
   end
+  object Label5: TLabel
+    Left = 16
+    Top = 200
+    Width = 95
+    Height = 13
+    Caption = 'Unidade de Medida:'
+  end
   object DBEdit1: TDBEdit
-    Left = 32
-    Top = 40
+    Left = 16
+    Top = 24
     Width = 121
     Height = 21
     DataField = 'idproduto'
@@ -52,8 +59,8 @@ object EdtProdutos: TEdtProdutos
     TabOrder = 0
   end
   object DBEdit2: TDBEdit
-    Left = 32
-    Top = 88
+    Left = 16
+    Top = 72
     Width = 121
     Height = 21
     DataField = 'nome'
@@ -61,8 +68,8 @@ object EdtProdutos: TEdtProdutos
     TabOrder = 1
   end
   object DBEdit3: TDBEdit
-    Left = 32
-    Top = 134
+    Left = 16
+    Top = 118
     Width = 121
     Height = 21
     DataField = 'qtde'
@@ -70,8 +77,8 @@ object EdtProdutos: TEdtProdutos
     TabOrder = 2
   end
   object DBEdit4: TDBEdit
-    Left = 32
-    Top = 180
+    Left = 16
+    Top = 164
     Width = 121
     Height = 21
     DataField = 'descricao'
@@ -79,8 +86,8 @@ object EdtProdutos: TEdtProdutos
     TabOrder = 3
   end
   object BtSalvar: TButton
-    Left = 40
-    Top = 240
+    Left = 16
+    Top = 263
     Width = 75
     Height = 25
     Caption = 'Salvar'
@@ -88,13 +95,22 @@ object EdtProdutos: TEdtProdutos
     OnClick = BtSalvarClick
   end
   object BtCancelar: TButton
-    Left = 136
-    Top = 240
+    Left = 112
+    Top = 263
     Width = 75
     Height = 25
     Caption = 'Cancelar'
     TabOrder = 5
     OnClick = BtCancelarClick
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 16
+    Top = 219
+    Width = 121
+    Height = 21
+    DataField = 'UnidadeMedida'
+    DataSource = DataSource1
+    TabOrder = 6
   end
   object DataSource1: TDataSource
     DataSet = dtmProdutos.ClientDataSet1

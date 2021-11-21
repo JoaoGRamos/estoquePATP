@@ -143,7 +143,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="dmVenda.pas">
-            <Form>DataModule1</Form>
+            <Form>dtmVenda</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
@@ -182,6 +182,14 @@
         </DCCReference>
         <DCCReference Include="EdFornecedores.pas">
             <Form>EdtFornecedores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="formVenda.pas">
+            <Form>frmVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="EdVenda.pas">
+            <Form>EditVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

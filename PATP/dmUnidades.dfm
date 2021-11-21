@@ -3,6 +3,7 @@ object DataModule5: TDataModule5
   Height = 292
   Width = 400
   object FDQuery1: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -21,43 +22,13 @@ object DataModule5: TDataModule5
     ProviderName = 'DataSetProvider1'
     Left = 168
     Top = 184
-    object ClientDataSet1idproduto: TAutoIncField
-      DisplayWidth = 10
-      FieldName = 'idproduto'
-      Origin = 'idproduto'
-      ProviderFlags = [pfInWhere, pfInKey]
-    end
-    object ClientDataSet1nome: TStringField
-      DisplayWidth = 8
-      FieldName = 'nome'
-      Origin = 'nome'
-      Size = 95
-    end
-    object ClientDataSet1descricao: TStringField
-      DisplayWidth = 11
-      FieldName = 'descricao'
-      Origin = 'descricao'
-      Size = 95
-    end
-    object ClientDataSet1qtde: TSingleField
-      DisplayWidth = 10
-      FieldName = 'qtde'
-      Origin = 'qtde'
-    end
-    object ClientDataSet1idumedida: TIntegerField
-      DisplayWidth = 10
+    object ClientDataSet1idumedida: TAutoIncField
       FieldName = 'idumedida'
-      Origin = 'idumedida'
+      ReadOnly = True
     end
-    object ClientDataSet1idcat: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'idcat'
-      Origin = 'idcat'
-    end
-    object ClientDataSet1idsubcat: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'idsubcat'
-      Origin = 'idsubcat'
+    object ClientDataSet1umedida: TStringField
+      FieldName = 'umedida'
+      Size = 95
     end
   end
 end

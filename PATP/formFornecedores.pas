@@ -31,6 +31,7 @@ type
     procedure EditarClick(Sender: TObject);
     procedure FecharClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure FormDblClick(Sender: TObject);
   private
     { Private declarations }
     procedure AbrirCadastro(novo: Boolean);
@@ -92,6 +93,11 @@ end;
 procedure TfrmFornecedores.FecharClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmFornecedores.FormDblClick(Sender: TObject);
+begin
+  AbrirCadastro(dtmFornecedores.FDQuery2.IsEmpty);
 end;
 
 procedure TfrmFornecedores.NovoClick(Sender: TObject);

@@ -22,6 +22,7 @@ type
     procedure Button4Click(Sender: TObject);
     procedure Button9Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +38,8 @@ implementation
 
 uses dmProdutos, formProdutos, dmCategorias, dmClientes, dmCompra, dmConexao,
   dmFornecedores, dmSubCategorias, dmUnidades, dmVenda, formClientes,
-  formFornecedores, frmCategoria, Campos, EdCompra, formCompra;
+  formFornecedores, frmCategoria, Campos, EdCompra, formCompra, EdClientes,
+  EdFornecedores, EdProdutos, formVenda;
 
 procedure TfrmPrincipal.Button2Click(Sender: TObject);
 begin
@@ -96,6 +98,21 @@ begin
     end;
   finally
     FreeAndNil(dtmClientes);
+  end;
+end;
+
+procedure TfrmPrincipal.Button8Click(Sender: TObject);
+begin
+  dtmVenda := TdtmVenda.Create(Self);
+  try
+    frmVenda := TfrmVenda.Create(Self);
+    try
+      frmVenda.ShowModal;
+    finally
+      FreeAndNil(frmVenda);
+    end;
+  finally
+    FreeAndNil(dtmVenda);
   end;
 end;
 

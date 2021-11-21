@@ -1,0 +1,35 @@
+object dtmVenda: TdtmVenda
+  OldCreateOrder = False
+  Height = 281
+  Width = 361
+  object FDQuery1: TFDQuery
+    Active = True
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from venda')
+    Left = 136
+    Top = 48
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = FDQuery1
+    Left = 136
+    Top = 104
+  end
+  object ClientDataSet1: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DataSetProvider1'
+    Left = 136
+    Top = 168
+  end
+  object FDQuery2: TFDQuery
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from venda')
+    Left = 224
+    Top = 56
+  end
+end

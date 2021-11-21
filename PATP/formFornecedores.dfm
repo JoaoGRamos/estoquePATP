@@ -11,6 +11,7 @@ object frmFornecedores: TfrmFornecedores
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnDblClick = FormDblClick
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid

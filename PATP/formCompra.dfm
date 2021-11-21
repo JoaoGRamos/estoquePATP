@@ -14,27 +14,35 @@ object frmCompra: TfrmCompra
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
-    Left = 8
-    Top = 152
-    Width = 593
-    Height = 297
+    Left = 0
+    Top = 112
+    Width = 740
+    Height = 369
     DataSource = DataSource1
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
     Width = 745
     Height = 66
-    Caption = 'Panel1'
     TabOrder = 1
+    object Label2: TLabel
+      Left = 8
+      Top = 9
+      Width = 48
+      Height = 13
+      Caption = 'Cadastro:'
+    end
     object DBNavigator1: TDBNavigator
-      Left = 292
+      Left = 380
       Top = 15
       Width = 165
       Height = 26
@@ -43,15 +51,16 @@ object frmCompra: TfrmCompra
       TabOrder = 0
     end
     object Deletar: TButton
-      Left = 194
+      Left = 290
       Top = 16
       Width = 75
       Height = 25
       Caption = 'Deletar'
       TabOrder = 1
+      OnClick = DeletarClick
     end
     object Editar: TButton
-      Left = 113
+      Left = 201
       Top = 16
       Width = 75
       Height = 25
@@ -60,7 +69,7 @@ object frmCompra: TfrmCompra
       OnClick = EditarClick
     end
     object Novo: TButton
-      Left = 32
+      Left = 112
       Top = 16
       Width = 75
       Height = 25
@@ -69,7 +78,7 @@ object frmCompra: TfrmCompra
       OnClick = NovoClick
     end
     object Fechar: TButton
-      Left = 478
+      Left = 566
       Top = 16
       Width = 75
       Height = 25
@@ -78,9 +87,23 @@ object frmCompra: TfrmCompra
       OnClick = FecharClick
     end
   end
+  object Panel2: TPanel
+    Left = 0
+    Top = 64
+    Width = 745
+    Height = 49
+    TabOrder = 2
+    object Label1: TLabel
+      Left = 8
+      Top = 8
+      Width = 46
+      Height = 13
+      Caption = 'Pesquisa:'
+    end
+  end
   object DataSource1: TDataSource
     DataSet = dtmCompra.FDQuery2
-    Left = 704
-    Top = 384
+    Left = 688
+    Top = 392
   end
 end

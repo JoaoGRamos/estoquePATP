@@ -1,0 +1,41 @@
+unit formVenda;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.DBCtrls,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TfrmVenda = class(TForm)
+    DBGrid1: TDBGrid;
+    Panel1: TPanel;
+    Cadastro: TLabel;
+    DBNavigator1: TDBNavigator;
+    Novo: TButton;
+    Editar: TButton;
+    Deletar: TButton;
+    Fechar: TButton;
+    Panel2: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    pNome: TEdit;
+    Pesquisar: TButton;
+    DataSource1: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmVenda: TfrmVenda;
+
+implementation
+
+{$R *.dfm}
+
+uses dmVenda;
+
+end.

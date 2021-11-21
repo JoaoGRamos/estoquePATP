@@ -19,6 +19,10 @@ type
     FDQuery2datacompra: TDateField;
     FDQuery2precototal: TStringField;
     FDQuery2idfornecedor: TIntegerField;
+    ClientDataSet1idcompra: TAutoIncField;
+    ClientDataSet1datacompra: TDateField;
+    ClientDataSet1precototal: TStringField;
+    ClientDataSet1idfornecedor: TIntegerField;
     procedure ClientDataSet1AfterDelete(DataSet: TDataSet);
     procedure ClientDataSet1AfterPost(DataSet: TDataSet);
     procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;

@@ -55,6 +55,7 @@ object EdtFornecedores: TEdtFornecedores
     Height = 21
     DataField = 'idfornecedor'
     DataSource = DataSource1
+    Enabled = False
     TabOrder = 0
   end
   object DBEdit2: TDBEdit

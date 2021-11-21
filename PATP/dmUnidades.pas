@@ -14,13 +14,8 @@ type
     FDQuery1: TFDQuery;
     DataSetProvider1: TDataSetProvider;
     ClientDataSet1: TClientDataSet;
-    ClientDataSet1idproduto: TAutoIncField;
-    ClientDataSet1nome: TStringField;
-    ClientDataSet1descricao: TStringField;
-    ClientDataSet1qtde: TSingleField;
-    ClientDataSet1idumedida: TIntegerField;
-    ClientDataSet1idcat: TIntegerField;
-    ClientDataSet1idsubcat: TIntegerField;
+    ClientDataSet1idumedida: TAutoIncField;
+    ClientDataSet1umedida: TStringField;
   private
     { Private declarations }
   public

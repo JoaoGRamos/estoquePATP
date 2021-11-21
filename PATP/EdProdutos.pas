@@ -20,6 +20,8 @@ type
     Label4: TLabel;
     BtSalvar: TButton;
     BtCancelar: TButton;
+    Label5: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
     procedure BtSalvarClick(Sender: TObject);
     procedure BtCancelarClick(Sender: TObject);
   private

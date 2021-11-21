@@ -11,7 +11,7 @@ uses
   dmFornecedores in 'dmFornecedores.pas' {dtmFornecedores: TDataModule},
   formProdutos in 'formProdutos.pas' {frmProdutos},
   formFornecedores in 'formFornecedores.pas' {frmFornecedores},
-  dmVenda in 'dmVenda.pas' {DataModule1: TDataModule},
+  dmVenda in 'dmVenda.pas' {dtmVenda: TDataModule},
   dmCompra in 'dmCompra.pas' {dtmCompra: TDataModule},
   formClientes in 'formClientes.pas' {frmClientes},
   frmCategoria in 'frmCategoria.pas' {formCategoria},
@@ -20,7 +20,9 @@ uses
   EdCompra in 'EdCompra.pas' {EditCompra},
   EdClientes in 'EdClientes.pas' {EdCliente},
   EdProdutos in 'EdProdutos.pas' {EdtProdutos},
-  EdFornecedores in 'EdFornecedores.pas' {EdtFornecedores};
+  EdFornecedores in 'EdFornecedores.pas' {EdtFornecedores},
+  formVenda in 'formVenda.pas' {frmVenda},
+  EdVenda in 'EdVenda.pas' {EditVenda};
 
 {$R *.res}
 
