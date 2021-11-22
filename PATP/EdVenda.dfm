@@ -80,7 +80,7 @@ object EditVenda: TEditVenda
   end
   object Button1: TButton
     Left = 40
-    Top = 240
+    Top = 248
     Width = 75
     Height = 25
     Caption = 'Salvar'
@@ -89,12 +89,21 @@ object EditVenda: TEditVenda
   end
   object Button2: TButton
     Left = 136
-    Top = 240
+    Top = 248
     Width = 75
     Height = 25
     Caption = 'Cancelar'
     TabOrder = 5
     OnClick = Button2Click
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 24
+    Top = 208
+    Width = 145
+    Height = 21
+    DataField = 'NomeProduto'
+    DataSource = DataSource1
+    TabOrder = 6
   end
   object DataSource1: TDataSource
     DataSet = dtmVenda.ClientDataSet1

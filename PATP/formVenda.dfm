@@ -49,6 +49,12 @@ object frmVenda: TfrmVenda
         FieldName = 'precototal'
         Width = 150
         Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nome'
+        Width = 150
+        Visible = True
       end>
   end
   object Panel1: TPanel

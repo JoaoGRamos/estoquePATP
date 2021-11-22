@@ -20,6 +20,7 @@ type
     Label4: TLabel;
     Button1: TButton;
     Button2: TButton;
+    DBLookupComboBox1: TDBLookupComboBox;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private

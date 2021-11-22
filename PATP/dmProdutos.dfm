@@ -146,6 +146,7 @@ object dtmProdutos: TdtmProdutos
       FieldName = 'idumedida'
       Origin = 'idumedida'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQuery3umedida: TStringField
       AutoGenerateValue = arDefault
