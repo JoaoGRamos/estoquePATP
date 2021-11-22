@@ -18,13 +18,10 @@ type
     FDQuery2nome: TStringField;
     FDQuery2descricao: TStringField;
     FDQuery2qtde: TSingleField;
-    FDQuery2idumedida: TIntegerField;
     FDQuery2idcat: TIntegerField;
-    FDQuery2idsubcat: TIntegerField;
     FDQuery3: TFDQuery;
     FDQuery3idumedida: TFDAutoIncField;
     FDQuery3umedida: TStringField;
-    FDQuery2idumedida_1: TIntegerField;
     FDQuery2umedida: TStringField;
     ClientDataSet1idproduto: TAutoIncField;
     ClientDataSet1nome: TStringField;
@@ -32,8 +29,11 @@ type
     ClientDataSet1qtde: TSingleField;
     ClientDataSet1idumedida: TIntegerField;
     ClientDataSet1idcat: TIntegerField;
-    ClientDataSet1idsubcat: TIntegerField;
-    ClientDataSet1UnidadeMedida: TStringField;
+    ClientDataSet1UnidadedeMedida: TStringField;
+    FDQuery4: TFDQuery;
+    FDQuery5: TFDQuery;
+    ClientDataSet1Categoria: TStringField;
+    FDQuery2catnome: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure ClientDataSet1AfterPost(DataSet: TDataSet);
     procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;

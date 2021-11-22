@@ -14,10 +14,11 @@ object frmProdutos: TfrmProdutos
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
-    Left = 2
-    Top = 96
-    Width = 759
+    Left = 0
+    Top = 104
+    Width = 767
     Height = 278
+    Align = alCustom
     DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     TabOrder = 0
@@ -53,14 +54,13 @@ object frmProdutos: TfrmProdutos
       end
       item
         Expanded = False
-        FieldName = 'idumedida'
+        FieldName = 'umedida'
         Width = 50
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'umedida'
-        Width = 50
+        FieldName = 'catnome'
         Visible = True
       end>
   end
@@ -71,15 +71,15 @@ object frmProdutos: TfrmProdutos
     Height = 46
     TabOrder = 1
     object Cadastro: TLabel
-      Left = 19
-      Top = 6
+      Left = 9
+      Top = 14
       Width = 48
       Height = 13
       Caption = 'Cadastro:'
     end
     object Novo: TButton
-      Left = 88
-      Top = 8
+      Left = 71
+      Top = 9
       Width = 75
       Height = 25
       Caption = 'Novo'
@@ -87,8 +87,8 @@ object frmProdutos: TfrmProdutos
       OnClick = NovoClick
     end
     object Fechar: TButton
-      Left = 606
-      Top = 8
+      Left = 555
+      Top = 10
       Width = 75
       Height = 25
       Caption = 'Fechar'
@@ -96,8 +96,8 @@ object frmProdutos: TfrmProdutos
       OnClick = FecharClick
     end
     object Editar: TButton
-      Left = 185
-      Top = 8
+      Left = 159
+      Top = 9
       Width = 75
       Height = 25
       Caption = 'Editar'
@@ -105,8 +105,8 @@ object frmProdutos: TfrmProdutos
       OnClick = EditarClick
     end
     object Deletar: TButton
-      Left = 282
-      Top = 8
+      Left = 248
+      Top = 9
       Width = 75
       Height = 25
       Caption = 'Deletar'
@@ -114,8 +114,8 @@ object frmProdutos: TfrmProdutos
       OnClick = DeletarClick
     end
     object DBNavigator1: TDBNavigator
-      Left = 412
-      Top = 8
+      Left = 363
+      Top = 10
       Width = 165
       Height = 25
       DataSource = DataSource1

@@ -22,6 +22,8 @@ type
     BtCancelar: TButton;
     Label5: TLabel;
     DBLookupComboBox1: TDBLookupComboBox;
+    Label6: TLabel;
+    DBLookupComboBox2: TDBLookupComboBox;
     procedure BtSalvarClick(Sender: TObject);
     procedure BtCancelarClick(Sender: TObject);
   private

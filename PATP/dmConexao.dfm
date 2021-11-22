@@ -5,9 +5,9 @@ object dtmConexao: TdtmConexao
   Width = 417
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Database=patp'
+      'Database=estoquepatp'
       'User_Name=root'
-      'Password=Noiskita546'
+      'Password=1234'
       'Server=localhost'
       'DriverID=MySQL')
     Connected = True

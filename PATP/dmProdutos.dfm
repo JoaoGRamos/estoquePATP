@@ -18,6 +18,7 @@ object dtmProdutos: TdtmProdutos
     Top = 112
   end
   object ClientDataSet1: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
@@ -54,13 +55,9 @@ object dtmProdutos: TdtmProdutos
       FieldName = 'idcat'
       Origin = 'idcat'
     end
-    object ClientDataSet1idsubcat: TIntegerField
-      FieldName = 'idsubcat'
-      Origin = 'idsubcat'
-    end
-    object ClientDataSet1UnidadeMedida: TStringField
+    object ClientDataSet1UnidadedeMedida: TStringField
       FieldKind = fkLookup
-      FieldName = 'UnidadeMedida'
+      FieldName = 'Unidade de Medida'
       LookupDataSet = FDQuery3
       LookupKeyFields = 'idumedida'
       LookupResultField = 'umedida'
@@ -68,15 +65,27 @@ object dtmProdutos: TdtmProdutos
       Size = 95
       Lookup = True
     end
+    object ClientDataSet1Categoria: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Categoria'
+      LookupDataSet = FDQuery5
+      LookupKeyFields = 'idcat'
+      LookupResultField = 'catnome'
+      KeyFields = 'idcat'
+      Size = 95
+      Lookup = True
+    end
   end
   object FDQuery2: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select * '
       'from produto p '
       'inner join unidademedida u '
-      'on p.idumedida = u.idumedida ')
+      'on p.idumedida = u.idumedida'
+      'inner join categoria c '
+      'on p.idcat = c.idcat '
+      '')
     Left = 184
     Top = 64
     object FDQuery2idproduto: TFDAutoIncField
@@ -102,27 +111,10 @@ object dtmProdutos: TdtmProdutos
       FieldName = 'qtde'
       Origin = 'qtde'
     end
-    object FDQuery2idumedida: TIntegerField
-      AutoGenerateValue = arDefault
-      FieldName = 'idumedida'
-      Origin = 'idumedida'
-    end
     object FDQuery2idcat: TIntegerField
       AutoGenerateValue = arDefault
       FieldName = 'idcat'
       Origin = 'idcat'
-    end
-    object FDQuery2idsubcat: TIntegerField
-      AutoGenerateValue = arDefault
-      FieldName = 'idsubcat'
-      Origin = 'idsubcat'
-    end
-    object FDQuery2idumedida_1: TIntegerField
-      AutoGenerateValue = arDefault
-      FieldName = 'idumedida_1'
-      Origin = 'idumedida'
-      ProviderFlags = []
-      ReadOnly = True
     end
     object FDQuery2umedida: TStringField
       AutoGenerateValue = arDefault
@@ -132,14 +124,21 @@ object dtmProdutos: TdtmProdutos
       ReadOnly = True
       Size = 95
     end
+    object FDQuery2catnome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'catnome'
+      Origin = 'catnome'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 95
+    end
   end
   object FDQuery3: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select * '
-      'from produto p '
-      'inner join unidademedida u '
-      'on p.idumedida = u.idumedida ')
+      'from unidademedida')
     Left = 184
     Top = 136
     object FDQuery3idumedida: TFDAutoIncField
@@ -154,5 +153,25 @@ object dtmProdutos: TdtmProdutos
       Origin = 'umedida'
       Size = 95
     end
+  end
+  object FDQuery4: TFDQuery
+    Active = True
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select * '
+      'from produto p'
+      'inner join categoria c '
+      'on p.idcat = c.idcat ')
+    Left = 256
+    Top = 64
+  end
+  object FDQuery5: TFDQuery
+    Active = True
+    Connection = dtmConexao.FDConnection1
+    SQL.Strings = (
+      'select *'
+      'from categoria')
+    Left = 256
+    Top = 136
   end
 end

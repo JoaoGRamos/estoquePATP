@@ -2,7 +2,7 @@ object EdtProdutos: TEdtProdutos
   Left = 0
   Top = 0
   Caption = 'Editar produtos'
-  ClientHeight = 296
+  ClientHeight = 350
   ClientWidth = 295
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -48,6 +48,13 @@ object EdtProdutos: TEdtProdutos
     Height = 13
     Caption = 'Unidade de Medida:'
   end
+  object Label6: TLabel
+    Left = 16
+    Top = 246
+    Width = 51
+    Height = 13
+    Caption = 'Categoria:'
+  end
   object DBEdit1: TDBEdit
     Left = 16
     Top = 24
@@ -55,7 +62,6 @@ object EdtProdutos: TEdtProdutos
     Height = 21
     DataField = 'idproduto'
     DataSource = DataSource1
-    Enabled = False
     TabOrder = 0
   end
   object DBEdit2: TDBEdit
@@ -87,7 +93,7 @@ object EdtProdutos: TEdtProdutos
   end
   object BtSalvar: TButton
     Left = 16
-    Top = 263
+    Top = 303
     Width = 75
     Height = 25
     Caption = 'Salvar'
@@ -96,7 +102,7 @@ object EdtProdutos: TEdtProdutos
   end
   object BtCancelar: TButton
     Left = 112
-    Top = 263
+    Top = 303
     Width = 75
     Height = 25
     Caption = 'Cancelar'
@@ -108,13 +114,22 @@ object EdtProdutos: TEdtProdutos
     Top = 219
     Width = 121
     Height = 21
-    DataField = 'UnidadeMedida'
+    DataField = 'Unidade de Medida'
     DataSource = DataSource1
     TabOrder = 6
   end
+  object DBLookupComboBox2: TDBLookupComboBox
+    Left = 16
+    Top = 265
+    Width = 121
+    Height = 21
+    DataField = 'Categoria'
+    DataSource = DataSource1
+    TabOrder = 7
+  end
   object DataSource1: TDataSource
     DataSet = dtmProdutos.ClientDataSet1
-    Left = 232
-    Top = 144
+    Left = 240
+    Top = 128
   end
 end
