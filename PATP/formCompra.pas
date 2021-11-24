@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids;
+  Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls;
 
 type
   TfrmCompra = class(TForm)
@@ -20,11 +20,20 @@ type
     Panel2: TPanel;
     Label1: TLabel;
     Label2: TLabel;
+    label3: TLabel;
+    eNome: TEdit;
+    dpData1: TDateTimePicker;
+    dpData2: TDateTimePicker;
+    Label4: TLabel;
+    chkUsardata: TCheckBox;
+    Button1: TButton;
     procedure FecharClick(Sender: TObject);
     procedure NovoClick(Sender: TObject);
     procedure EditarClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure DeletarClick(Sender: TObject);
+    procedure chkUsardataClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     procedure AbrirCadastro(Novo: Boolean);
@@ -62,6 +71,41 @@ begin
   finally
     FreeAndNil(EditCompra);
   end;
+end;
+
+procedure TfrmCompra.Button1Click(Sender: TObject);
+var
+  data1, data2: string;
+begin
+  with dtmCompra.FDQuery6 do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select c.*, f.nome, count(*) produto');
+    SQL.Add('from compra c');
+    SQL.Add('inner join fornecedor f on f.idfornecedor = c.idfornecedor');
+    SQL.Add('left join itenscompra i on i.idcompra = c.idcompra ');
+    SQL.Add('where (1=1)');
+
+    if trim(eNome.Text) <> ' ' then
+    begin
+      SQL.Add('and fornecedor.nome like ' + QuotedStr(eNome.Text + '%'));
+    end;
+
+    if chkUsarData.Checked then
+    begin
+      data1 := FormatDateTime('yyyy-mm-dd',dpData1.Date);
+      data2 := FormatDateTime('yyyy-mm-dd',dpData2.Date);
+      SQL.Add('and venda.datavenda between ' +
+           QuotedStr(data1) + ' and ' + QuotedStr(data2));
+    end;
+  end;
+end;
+
+procedure TfrmCompra.chkUsardataClick(Sender: TObject);
+begin
+  dpData1.Enabled := chkUsardata.Checked;
+  dpData2.Enabled := chkUsardata.Checked;
 end;
 
 procedure TfrmCompra.DBGrid1DblClick(Sender: TObject);

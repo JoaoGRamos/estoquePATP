@@ -128,27 +128,64 @@ object frmVenda: TfrmVenda
       Height = 13
       Caption = 'Pesquisa:'
     end
-    object Label2: TLabel
-      Left = 69
-      Top = 18
-      Width = 31
+    object c: TLabel
+      Left = 11
+      Top = 25
+      Width = 80
       Height = 13
-      Caption = 'Nome:'
+      Caption = 'Nome do cliente:'
+    end
+    object Label2: TLabel
+      Left = 436
+      Top = 25
+      Width = 6
+      Height = 13
+      Caption = #224
     end
     object pNome: TEdit
-      Left = 108
-      Top = 15
+      Left = 101
+      Top = 21
       Width = 157
       Height = 21
       TabOrder = 0
     end
     object Pesquisar: TButton
-      Left = 296
-      Top = 13
-      Width = 89
+      Left = 547
+      Top = 18
+      Width = 75
       Height = 25
       Caption = 'Pesquisar'
       TabOrder = 1
+      OnClick = PesquisarClick
+    end
+    object dpData1: TDateTimePicker
+      Left = 349
+      Top = 21
+      Width = 75
+      Height = 21
+      Date = 44524.000000000000000000
+      Time = 0.576257627311861100
+      Enabled = False
+      TabOrder = 2
+    end
+    object dpData2: TDateTimePicker
+      Left = 456
+      Top = 21
+      Width = 75
+      Height = 21
+      Date = 44524.000000000000000000
+      Time = 0.576257627311861100
+      Enabled = False
+      TabOrder = 3
+    end
+    object chkUsardata: TCheckBox
+      Left = 273
+      Top = 22
+      Width = 73
+      Height = 17
+      Caption = 'Usar data?'
+      TabOrder = 4
+      OnClick = chkUsardataClick
     end
   end
   object DataSource1: TDataSource

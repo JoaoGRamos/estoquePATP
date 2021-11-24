@@ -15,24 +15,73 @@ type
     DataSetProvider1: TDataSetProvider;
     ClientDataSet1: TClientDataSet;
     FDQuery2: TFDQuery;
-    FDQuery2idcompra: TFDAutoIncField;
-    FDQuery2datacompra: TDateField;
-    FDQuery2precototal: TStringField;
-    FDQuery2idfornecedor: TIntegerField;
     ClientDataSet1idcompra: TAutoIncField;
     ClientDataSet1datacompra: TDateField;
     ClientDataSet1precototal: TStringField;
     ClientDataSet1idfornecedor: TIntegerField;
+    DataSource1: TDataSource;
+    FDQuery3: TFDQuery;
+    FDQuery4: TFDQuery;
+    FDQuery5: TFDQuery;
+    FDQuery6: TFDQuery;
+    ClientDataSet2: TClientDataSet;
+    FDQuery2idcompra: TIntegerField;
+    FDQuery2qtde: TIntegerField;
+    FDQuery2valorunitario: TLargeintField;
+    FDQuery2valortotal: TSingleField;
+    FDQuery2idproduto: TIntegerField;
+    FDQuery1idcompra: TIntegerField;
+    FDQuery1datacompra: TDateField;
+    FDQuery1precototal: TStringField;
+    FDQuery1idfornecedor: TIntegerField;
+    FDQuery3idfornecedor: TIntegerField;
+    FDQuery3nome: TStringField;
+    FDQuery3cnpj: TStringField;
+    FDQuery3fone: TStringField;
+    FDQuery3email: TStringField;
+    FDQuery6idcompra: TIntegerField;
+    FDQuery6datacompra: TDateField;
+    FDQuery6precototal: TStringField;
+    FDQuery6idfornecedor: TIntegerField;
+    FDQuery6nome: TStringField;
+    FDQuery6produto: TLargeintField;
+    FDQuery5idproduto: TIntegerField;
+    FDQuery5nome: TStringField;
+    FDQuery5valorunitario: TSingleField;
+    FDQuery5qtde: TSingleField;
+    FDQuery5idumedida: TIntegerField;
+    FDQuery5idcat: TIntegerField;
+    FDQuery4proximo_id: TLargeintField;
+    ClientDataSet1FDQuery2: TDataSetField;
+    ClientDataSet2idcompra: TIntegerField;
+    ClientDataSet2qtde: TIntegerField;
+    ClientDataSet2valorunitario: TLargeintField;
+    ClientDataSet2valortotal: TSingleField;
+    ClientDataSet2idproduto: TIntegerField;
+    ClientDataSet1NomeFornecedor: TStringField;
     procedure ClientDataSet1AfterDelete(DataSet: TDataSet);
     procedure ClientDataSet1AfterPost(DataSet: TDataSet);
     procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;
       E: EReconcileError; UpdateKind: TUpdateKind;
       var Action: TReconcileAction);
     procedure DataModuleCreate(Sender: TObject);
+    procedure ClientDataSet1BeforeDelete(DataSet: TDataSet);
+    procedure ClientDataSet1NewRecord(DataSet: TDataSet);
+    procedure ClientDataSet2BeforeDelete(DataSet: TDataSet);
+    procedure ClientDataSet2BeforeEdit(DataSet: TDataSet);
+    procedure ClientDataSet2BeforePost(DataSet: TDataSet);
+    procedure DataSetProvider1AfterUpdateRecord(Sender: TObject;
+      SourceDS: TDataSet; DeltaDS: TCustomClientDataSet;
+      UpdateKind: TUpdateKind);
+    procedure ClientDataSet2qtdeChange(Sender: TField);
+    procedure ClientDataSet2valorunitarioChange(Sender: TField);
+
   private
-    { Private declarations }
+    totalantigo : Double;
+    proximoId : Integer;
+    function getProximoId : Integer;
   public
-    { Public declarations }
+    procedure AplicarMudancas;
   end;
 
 var
@@ -46,30 +95,136 @@ uses dmConexao;
 
 {$R *.dfm}
 
-procedure TdtmCompra.ClientDataSet1AfterDelete(DataSet: TDataSet);
+procedure TdtmCompra.AplicarMudancas;
+begin
+  dtmConexao.FDConnection1.StartTransaction;
+  try
+    ClientDataSet1.ApplyUpdates(-1);
+    dtmConexao.FDConnection1.CommitRetaining; // .Commit;
+    if proximoId > 0 then
+    begin
+      ClientDataSet1.Close;
+      ClientDataSet2.Close;
+      ClientDataSet1.Open;
+      ClientDataSet2.Open;
+      ClientDataSet1.Locate('idcompra', proximoId, []);
+    end;
+  except
+    on E: exception do
+    begin
+      dtmConexao.FDConnection1.RollbackRetaining; // .Rollback;
+      ShowMessage('Mudanças Canceladas. Ocorreu o erro: ' + E.message);
+    end;
+  end;
+end;
+
+procedure TdtmCompra.ClientDataSet1AfterDelete(DataSet: TDataSet); // CDS1 After delete
+begin
+  ClientDataSet1.ApplyUpdates(-1);
+end;
+
+procedure TdtmCompra.ClientDataSet1AfterPost(DataSet: TDataSet); // CDS1 After Post
 begin
   if ClientDataSet1.ChangeCount > 0 then
   ClientDataSet1.ApplyUpdates(0);
 end;
 
-procedure TdtmCompra.ClientDataSet1AfterPost(DataSet: TDataSet);
+procedure TdtmCompra.ClientDataSet1BeforeDelete(DataSet: TDataSet); // CDS1 Before Delete
 begin
-  if ClientDataSet1.ChangeCount > 0 then
-  ClientDataSet1.ApplyUpdates(0);
+  ClientDataSet2.First;
+  while not ClientDataSet2.eof do
+  begin
+    ClientDataSet2.Delete;
+  end;
+end;
+
+procedure TdtmCompra.ClientDataSet1NewRecord(DataSet: TDataSet); // CDS New Record
+begin
+  ClientDataSet1idcompra.AsInteger := 0;
+  ClientDataSet1precototal.AsFloat := 0;
 end;
 
 procedure TdtmCompra.ClientDataSet1ReconcileError(
   DataSet: TCustomClientDataSet; E: EReconcileError; UpdateKind: TUpdateKind;
-  var Action: TReconcileAction);
+  var Action: TReconcileAction);  // CDS1 Reconcile Error
 begin
   ShowMessage(E.Message);
   Action := raCancel;
 end;
 
+procedure TdtmCompra.ClientDataSet2BeforeDelete(DataSet: TDataSet); // CDS2 Before Delete
+begin
+  ClientDataSet1precototal.AsFloat := ClientDataSet1precototal.AsFloat - ClientDataSet2valortotal.AsFloat;
+end;
+
+procedure TdtmCompra.ClientDataSet2BeforeEdit(DataSet: TDataSet); //CDS2 Before Edit
+begin
+  totalantigo := ClientDataSet2valortotal.AsFloat;
+end;
+
+procedure TdtmCompra.ClientDataSet2BeforePost(DataSet: TDataSet); // CDS Before Post
+begin
+  ClientDataSet1precototal.AsFloat := ClientDataSet1precototal.AsFloat - totalantigo + ClientDataSet2valortotal.AsFloat;
+end;
+
+procedure TdtmCompra.ClientDataSet2qtdeChange(Sender: TField);  // CDS2 qtde On Change
+begin
+  ClientDataSet2valortotal.AsFloat := ClientDataSet2valorunitario.AsFloat * ClientDataSet2qtde.AsFloat;
+end;
+
+procedure TdtmCompra.ClientDataSet2valorunitarioChange(Sender: TField); // CDS2 valorunitario On Change
+begin
+  ClientDataSet2valortotal.AsFloat := ClientDataSet2valorunitario.AsFloat * ClientDataSet2qtde.AsFloat;
+end;
+
 procedure TdtmCompra.DataModuleCreate(Sender: TObject);
 begin
-  FDQuery2.Open;
+  FDQuery6.Open;
   ClientDataSet1.Open;
+  ClientDataSet2.Open;
+end;
+
+procedure TdtmCompra.DataSetProvider1AfterUpdateRecord(Sender: TObject;
+  SourceDS: TDataSet; DeltaDS: TCustomClientDataSet; UpdateKind: TUpdateKind); //DSP after Update Record
+  var
+    prox : Integer;
+begin
+  if (UpdateKind = ukInsert) then
+  begin
+    if SourceDS.Name = FDQuery1.Name then
+    begin
+      proximoId := getProximoId;
+      DeltaDS.Edit;
+      DeltaDS.FieldByName('idcompra').Value := proximoId;
+      DeltaDS.Post;
+    end
+    else
+    begin
+      if SourceDS.Name = FDQuery2.Name then
+      begin
+        if proximoId > 0 then
+        begin
+          DeltaDS.First;
+          while not DeltaDS.eof do
+          begin
+            DeltaDS.Edit;
+            DeltaDS.FieldByName('idcompra').Value := proximoId;
+            DeltaDS.Post;
+            DeltaDS.Next;
+          end;
+        end;
+      end;
+    end;
+  end
+  else
+    proximoId := 0;
+end;
+
+function TdtmCompra.getProximoId: integer;
+begin
+  FDQuery4.Close;
+  FDQuery4.Open;
+  result := FDQuery4proximo_id.AsInteger;
 end;
 
 end.

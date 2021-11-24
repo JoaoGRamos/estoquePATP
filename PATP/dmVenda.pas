@@ -174,14 +174,14 @@ begin
   totalantigo                      := 0;
 end;
 
-procedure TdtmVenda.ClientDataSet2qtdeChange(Sender: TField);
+procedure TdtmVenda.ClientDataSet2qtdeChange(Sender: TField); // CDS2 qtde On Change
 begin
-  ClientDataSet2valortotal.AsFloat := ClientDataSet2valorunitario.AsFloat * ClientDataSet2qtde.AsFloat; // CDS2 qtde On Change
+  ClientDataSet2valortotal.AsFloat := ClientDataSet2valorunitario.AsFloat * ClientDataSet2qtde.AsFloat;
 end;
 
-procedure TdtmVenda.ClientDataSet2valorunitarioChange(Sender: TField);
+procedure TdtmVenda.ClientDataSet2valorunitarioChange(Sender: TField); // CDS2 valorunitario On Change
 begin
-  ClientDataSet2valortotal.AsFloat := ClientDataSet2valorunitario.AsFloat * ClientDataSet2qtde.AsFloat; // CDS2 valorunitario On Change
+  ClientDataSet2valortotal.AsFloat := ClientDataSet2valorunitario.AsFloat * ClientDataSet2qtde.AsFloat;
 end;
 
 procedure TdtmVenda.DataModuleCreate(Sender: TObject);

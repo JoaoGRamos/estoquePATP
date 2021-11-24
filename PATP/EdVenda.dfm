@@ -88,6 +88,7 @@ object EditVenda: TEditVenda
     Top = 93
     Width = 690
     Height = 36
+    DataSource = DataSource1
     TabOrder = 5
   end
   object DBLookupComboBox1: TDBLookupComboBox

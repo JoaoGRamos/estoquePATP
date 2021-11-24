@@ -38,7 +38,6 @@ object dtmVenda: TdtmVenda
     Top = 152
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
@@ -82,6 +81,7 @@ object dtmVenda: TdtmVenda
     end
   end
   object FDQuery2: TFDQuery
+    Active = True
     MasterSource = DataSource1
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
@@ -126,7 +126,6 @@ object dtmVenda: TdtmVenda
     end
   end
   object FDQuery3: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -160,7 +159,6 @@ object dtmVenda: TdtmVenda
     end
   end
   object FDQuery4: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select ifnull(max(v.idvenda)+1, 1) proximo_id'
@@ -176,7 +174,6 @@ object dtmVenda: TdtmVenda
     end
   end
   object FDQuery5: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -216,7 +213,6 @@ object dtmVenda: TdtmVenda
     end
   end
   object FDQuery6: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select v.*, c.nome, count(*) produto'
@@ -266,7 +262,6 @@ object dtmVenda: TdtmVenda
     end
   end
   object ClientDataSet2: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = ClientDataSet1FDQuery2
     Params = <>

@@ -100,6 +100,65 @@ object frmCompra: TfrmCompra
       Height = 13
       Caption = 'Pesquisa:'
     end
+    object label3: TLabel
+      Left = 55
+      Top = 22
+      Width = 102
+      Height = 13
+      Caption = 'Nome do fornecedor:'
+    end
+    object Label4: TLabel
+      Left = 500
+      Top = 21
+      Width = 6
+      Height = 13
+      Caption = #224
+    end
+    object eNome: TEdit
+      Left = 164
+      Top = 18
+      Width = 121
+      Height = 21
+      TabOrder = 0
+    end
+    object dpData1: TDateTimePicker
+      Left = 396
+      Top = 17
+      Width = 89
+      Height = 21
+      Date = 44524.000000000000000000
+      Time = 0.598295625000901100
+      Enabled = False
+      TabOrder = 1
+    end
+    object dpData2: TDateTimePicker
+      Left = 520
+      Top = 17
+      Width = 89
+      Height = 21
+      Date = 44524.000000000000000000
+      Time = 0.598295625000901100
+      Enabled = False
+      TabOrder = 2
+    end
+    object chkUsardata: TCheckBox
+      Left = 313
+      Top = 19
+      Width = 77
+      Height = 17
+      Caption = 'Usar data?'
+      TabOrder = 3
+      OnClick = chkUsardataClick
+    end
+    object Button1: TButton
+      Left = 639
+      Top = 14
+      Width = 75
+      Height = 25
+      Caption = 'Pesquisar'
+      TabOrder = 4
+      OnClick = Button1Click
+    end
   end
   object DataSource1: TDataSource
     DataSet = dtmCompra.FDQuery2
