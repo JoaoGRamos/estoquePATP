@@ -2,8 +2,8 @@ object EditVenda: TEditVenda
   Left = 0
   Top = 0
   Caption = 'EditVenda'
-  ClientHeight = 301
-  ClientWidth = 292
+  ClientHeight = 466
+  ClientWidth = 697
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,101 +13,100 @@ object EditVenda: TEditVenda
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 24
-    Top = 13
-    Width = 63
-    Height = 13
-    Caption = 'ID da Venda:'
-  end
   object Label2: TLabel
-    Left = 24
-    Top = 59
+    Left = 32
+    Top = 13
     Width = 75
     Height = 13
     Caption = 'Data da Venda:'
   end
   object Label3: TLabel
-    Left = 24
-    Top = 105
-    Width = 64
+    Left = 189
+    Top = 13
+    Width = 80
     Height = 13
-    Caption = 'ID do cliente:'
+    Caption = 'Nome do cliente:'
   end
   object Label4: TLabel
-    Left = 24
-    Top = 151
+    Left = 482
+    Top = 428
     Width = 58
     Height = 13
     Caption = 'Pre'#231'o Total:'
   end
-  object DBEdit1: TDBEdit
-    Left = 24
-    Top = 32
-    Width = 121
-    Height = 21
-    DataField = 'idvenda'
-    DataSource = DataSource1
-    Enabled = False
-    TabOrder = 0
-  end
   object DBEdit2: TDBEdit
-    Left = 24
-    Top = 78
+    Left = 32
+    Top = 32
     Width = 121
     Height = 21
     DataField = 'datavenda'
     DataSource = DataSource1
-    TabOrder = 1
-  end
-  object DBEdit3: TDBEdit
-    Left = 24
-    Top = 124
-    Width = 121
-    Height = 21
-    DataField = 'idcliente'
-    DataSource = DataSource1
-    TabOrder = 2
+    TabOrder = 0
   end
   object DBEdit4: TDBEdit
-    Left = 24
-    Top = 170
+    Left = 551
+    Top = 425
     Width = 121
     Height = 21
     DataField = 'precototal'
     DataSource = DataSource1
-    TabOrder = 3
+    TabOrder = 1
   end
   object Button1: TButton
-    Left = 40
-    Top = 248
+    Left = 28
+    Top = 423
     Width = 75
     Height = 25
     Caption = 'Salvar'
-    TabOrder = 4
+    TabOrder = 2
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 136
-    Top = 248
+    Left = 122
+    Top = 423
     Width = 75
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 5
+    TabOrder = 3
     OnClick = Button2Click
   end
+  object DBGrid1: TDBGrid
+    Left = 3
+    Top = 135
+    Width = 697
+    Height = 281
+    DataSource = DataSource2
+    TabOrder = 4
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 3
+    Top = 93
+    Width = 690
+    Height = 36
+    TabOrder = 5
+  end
   object DBLookupComboBox1: TDBLookupComboBox
-    Left = 24
-    Top = 208
+    Left = 189
+    Top = 32
     Width = 145
     Height = 21
-    DataField = 'NomeProduto'
+    DataField = 'NomeCliente'
     DataSource = DataSource1
     TabOrder = 6
   end
   object DataSource1: TDataSource
     DataSet = dtmVenda.ClientDataSet1
-    Left = 216
-    Top = 216
+    Left = 632
+    Top = 32
+  end
+  object DataSource2: TDataSource
+    DataSet = dtmVenda.ClientDataSet2
+    Left = 632
+    Top = 360
   end
 end

@@ -1,9 +1,9 @@
 object frmCadCat: TfrmCadCat
   Left = 0
   Top = 0
-  Caption = 'Edit'
+  Caption = 'Cadastrar Categoria'
   ClientHeight = 192
-  ClientWidth = 324
+  ClientWidth = 207
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -28,7 +28,7 @@ object frmCadCat: TfrmCadCat
     Caption = 'Nome:'
   end
   object Button1: TButton
-    Left = 46
+    Left = 22
     Top = 141
     Width = 75
     Height = 25
@@ -37,23 +37,13 @@ object frmCadCat: TfrmCadCat
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 152
+    Left = 112
     Top = 141
     Width = 75
     Height = 25
     Caption = 'Cancelar'
     TabOrder = 1
     OnClick = Button2Click
-  end
-  object DBEdit1: TDBEdit
-    Left = 32
-    Top = 35
-    Width = 121
-    Height = 21
-    DataField = 'idcat'
-    DataSource = DataSource1
-    Enabled = False
-    TabOrder = 2
   end
   object DBEdit2: TDBEdit
     Left = 32
@@ -62,11 +52,20 @@ object frmCadCat: TfrmCadCat
     Height = 21
     DataField = 'catnome'
     DataSource = DataSource1
+    TabOrder = 2
+  end
+  object ID: TDBEdit
+    Left = 32
+    Top = 35
+    Width = 121
+    Height = 21
+    DataField = 'idcat'
+    DataSource = DataSource1
     TabOrder = 3
   end
   object DataSource1: TDataSource
     DataSet = dtmCategoria.ClientDataSet1
-    Left = 272
-    Top = 16
+    Left = 88
+    Top = 152
   end
 end

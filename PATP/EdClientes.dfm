@@ -43,12 +43,11 @@ object EdCliente: TEdCliente
   end
   object ID: TDBEdit
     Left = 32
-    Top = 32
+    Top = 34
     Width = 121
     Height = 21
     DataField = 'idcliente'
     DataSource = DataSource1
-    Enabled = False
     TabOrder = 0
   end
   object Nome: TDBEdit

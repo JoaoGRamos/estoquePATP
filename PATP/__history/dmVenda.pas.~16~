@@ -1,0 +1,104 @@
+unit dmVenda;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB, Dialogs,
+  Datasnap.DBClient, Datasnap.Provider, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+
+type
+  TdtmVenda = class(TDataModule)
+    FDQuery1: TFDQuery;
+    DataSetProvider1: TDataSetProvider;
+    ClientDataSet1: TClientDataSet;
+    FDQuery2: TFDQuery;
+    ClientDataSet1idvenda: TAutoIncField;
+    ClientDataSet1datavenda: TDateField;
+    ClientDataSet1precototal: TStringField;
+    ClientDataSet1idcliente: TIntegerField;
+    FDQuery3: TFDQuery;
+    FDQuery4: TFDQuery;
+    FDQuery5: TFDQuery;
+    FDQuery6: TFDQuery;
+    ClientDataSet2: TClientDataSet;
+    DataSource1: TDataSource;
+    FDQuery2idvenda: TIntegerField;
+    FDQuery2qtde: TSingleField;
+    FDQuery2valorunitario: TSingleField;
+    FDQuery2valortotal: TSingleField;
+    FDQuery2idproduto: TIntegerField;
+    FDQuery3idcliente: TIntegerField;
+    FDQuery3nome: TStringField;
+    FDQuery3cpf: TStringField;
+    FDQuery3fone: TStringField;
+    FDQuery1idvenda: TIntegerField;
+    FDQuery1datavenda: TDateField;
+    FDQuery1precototal: TStringField;
+    FDQuery1idcliente: TIntegerField;
+    FDQuery4proximo_id: TLargeintField;
+    FDQuery5idproduto: TIntegerField;
+    FDQuery5nome: TStringField;
+    FDQuery5descricao: TStringField;
+    FDQuery5qtde: TSingleField;
+    FDQuery5idumedida: TIntegerField;
+    FDQuery5idcat: TIntegerField;
+    FDQuery6idvenda: TIntegerField;
+    FDQuery6datavenda: TDateField;
+    FDQuery6precototal: TStringField;
+    FDQuery6idcliente: TIntegerField;
+    FDQuery6nome: TStringField;
+    FDQuery6produto: TLargeintField;
+    ClientDataSet1FDQuery2: TDataSetField;
+    ClientDataSet1NomeCliente: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure ClientDataSet1AfterDelete(DataSet: TDataSet);
+    procedure ClientDataSet1AfterPost(DataSet: TDataSet);
+    procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dtmVenda: TdtmVenda;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses dmConexao;
+
+{$R *.dfm}
+
+procedure TdtmVenda.ClientDataSet1AfterDelete(DataSet: TDataSet);
+begin
+  if ClientDataSet1.ChangeCount > 0 then
+  ClientDataSet1.ApplyUpdates(0);
+end;
+
+procedure TdtmVenda.ClientDataSet1AfterPost(DataSet: TDataSet);
+begin
+  if ClientDataSet1.ChangeCount > 0 then
+  ClientDataSet1.ApplyUpdates(0);
+end;
+
+procedure TdtmVenda.ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;
+  E: EReconcileError; UpdateKind: TUpdateKind; var Action: TReconcileAction);
+begin
+  ShowMessage(E.Message);
+  Action := raCancel;
+end;
+
+procedure TdtmVenda.DataModuleCreate(Sender: TObject);
+begin
+  FDQuery2.Open;
+  ClientDataSet1.Open;
+end;
+
+end.

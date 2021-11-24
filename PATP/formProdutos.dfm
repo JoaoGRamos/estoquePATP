@@ -43,12 +43,6 @@ object frmProdutos: TfrmProdutos
       end
       item
         Expanded = False
-        FieldName = 'descricao'
-        Width = 150
-        Visible = True
-      end
-      item
-        Expanded = False
         FieldName = 'qtde'
         Visible = True
       end

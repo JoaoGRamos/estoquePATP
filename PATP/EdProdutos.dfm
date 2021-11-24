@@ -30,9 +30,9 @@ object EdtProdutos: TEdtProdutos
   object Label3: TLabel
     Left = 16
     Top = 145
-    Width = 50
+    Width = 28
     Height = 13
-    Caption = 'Descri'#231#227'o:'
+    Caption = 'Valor:'
   end
   object Label4: TLabel
     Left = 16
@@ -87,7 +87,7 @@ object EdtProdutos: TEdtProdutos
     Top = 164
     Width = 121
     Height = 21
-    DataField = 'descricao'
+    DataField = 'valorunitario'
     DataSource = DataSource1
     TabOrder = 3
   end

@@ -14,8 +14,8 @@ type
     Button1: TButton;
     Button2: TButton;
     DataSource1: TDataSource;
-    DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
+    ID: TDBEdit;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private

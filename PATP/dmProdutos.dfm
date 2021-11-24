@@ -4,13 +4,44 @@ object dtmProdutos: TdtmProdutos
   Height = 354
   Width = 374
   object FDQuery1: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
       'from produto')
     Left = 88
     Top = 56
+    object FDQuery1idproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FDQuery1nome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 95
+    end
+    object FDQuery1valorunitario: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'valorunitario'
+      Origin = 'valorunitario'
+    end
+    object FDQuery1qtde: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'qtde'
+      Origin = 'qtde'
+    end
+    object FDQuery1idumedida: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idumedida'
+      Origin = 'idumedida'
+    end
+    object FDQuery1idcat: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idcat'
+      Origin = 'idcat'
+    end
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = FDQuery1
@@ -18,7 +49,6 @@ object dtmProdutos: TdtmProdutos
     Top = 112
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
@@ -36,11 +66,6 @@ object dtmProdutos: TdtmProdutos
     object ClientDataSet1nome: TStringField
       FieldName = 'nome'
       Origin = 'nome'
-      Size = 95
-    end
-    object ClientDataSet1descricao: TStringField
-      FieldName = 'descricao'
-      Origin = 'descricao'
       Size = 95
     end
     object ClientDataSet1qtde: TSingleField
@@ -75,6 +100,10 @@ object dtmProdutos: TdtmProdutos
       Size = 95
       Lookup = True
     end
+    object ClientDataSet1valorunitario: TSingleField
+      FieldName = 'valorunitario'
+      currency = True
+    end
   end
   object FDQuery2: TFDQuery
     Connection = dtmConexao.FDConnection1
@@ -98,12 +127,6 @@ object dtmProdutos: TdtmProdutos
       AutoGenerateValue = arDefault
       FieldName = 'nome'
       Origin = 'nome'
-      Size = 95
-    end
-    object FDQuery2descricao: TStringField
-      AutoGenerateValue = arDefault
-      FieldName = 'descricao'
-      Origin = 'descricao'
       Size = 95
     end
     object FDQuery2qtde: TSingleField
@@ -132,9 +155,13 @@ object dtmProdutos: TdtmProdutos
       ReadOnly = True
       Size = 95
     end
+    object FDQuery2valorunitario: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'valorunitario'
+      Origin = 'valorunitario'
+    end
   end
   object FDQuery3: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select * '
@@ -154,24 +181,12 @@ object dtmProdutos: TdtmProdutos
       Size = 95
     end
   end
-  object FDQuery4: TFDQuery
-    Active = True
-    Connection = dtmConexao.FDConnection1
-    SQL.Strings = (
-      'select * '
-      'from produto p'
-      'inner join categoria c '
-      'on p.idcat = c.idcat ')
-    Left = 256
-    Top = 64
-  end
   object FDQuery5: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
       'from categoria')
     Left = 256
-    Top = 136
+    Top = 64
   end
 end

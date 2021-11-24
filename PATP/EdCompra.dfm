@@ -48,7 +48,6 @@ object EditCompra: TEditCompra
     Height = 21
     DataField = 'idcompra'
     DataSource = DataSource1
-    Enabled = False
     TabOrder = 0
   end
   object DBEdit2: TDBEdit
