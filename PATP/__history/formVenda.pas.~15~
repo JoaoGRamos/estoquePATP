@@ -57,10 +57,10 @@ begin
       dtmvenda.ClientDataSet1.Append
     else
     begin
-      dtmvenda.ClientDataSet1.Locate('idvenda', dtmvenda.FDQuery6idvenda.AsInteger, []);
+      dtmvenda.ClientDataSet1.Locate('id', dtmvenda.FDQuery6id.AsInteger, []);
       dtmvenda.ClientDataSet1.Edit;
     end;
-    if EditVenda.ShowModal = mrOk then
+    if formvenda.ShowModal = mrOk then
     begin
       dtmVenda.ClientDataSet1.Post;
       try
@@ -86,7 +86,7 @@ end;
 
 procedure TfrmVenda.EditarClick(Sender: TObject);
 begin
-  AbrirCadastro(dtmVenda.FDQuery6.IsEmpty);
+  AbrirCadastro(dtmVenda.FDQuery2.IsEmpty);
 end;
 
 procedure TfrmVenda.FecharClick(Sender: TObject);
@@ -96,7 +96,7 @@ end;
 
 procedure TfrmVenda.FormDblClick(Sender: TObject);
 begin
-  AbrirCadastro(dtmVenda.FDQuery6.IsEmpty);
+  AbrirCadastro(dtmVenda.FDQuery2.IsEmpty);
 end;
 
 procedure TfrmVenda.NovoClick(Sender: TObject);

@@ -86,7 +86,7 @@ end;
 
 procedure TfrmVenda.EditarClick(Sender: TObject);
 begin
-  AbrirCadastro(dtmVenda.FDQuery6.IsEmpty);
+  AbrirCadastro(dtmVenda.FDQuery2.IsEmpty);
 end;
 
 procedure TfrmVenda.FecharClick(Sender: TObject);
@@ -96,7 +96,7 @@ end;
 
 procedure TfrmVenda.FormDblClick(Sender: TObject);
 begin
-  AbrirCadastro(dtmVenda.FDQuery6.IsEmpty);
+  AbrirCadastro(dtmVenda.FDQuery2.IsEmpty);
 end;
 
 procedure TfrmVenda.NovoClick(Sender: TObject);

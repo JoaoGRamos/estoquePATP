@@ -189,7 +189,7 @@ object frmVenda: TfrmVenda
     end
   end
   object DataSource1: TDataSource
-    DataSet = dtmVenda.FDQuery6
+    DataSet = dtmVenda.FDQuery2
     Left = 576
     Top = 328
   end

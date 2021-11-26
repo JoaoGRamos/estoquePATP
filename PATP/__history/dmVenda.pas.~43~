@@ -61,7 +61,6 @@ type
     FDQuery1idvenda: TIntegerField;
     FDQuery7: TFDQuery;
     FDQuery8: TFDQuery;
-    FDQuery8qtde: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure ClientDataSet1AfterDelete(DataSet: TDataSet);
     procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;
@@ -82,7 +81,6 @@ type
     procedure ClientDataSet2ReconcileError(DataSet: TCustomClientDataSet;
       E: EReconcileError; UpdateKind: TUpdateKind;
       var Action: TReconcileAction);
-
   private
     totalantigo : Double;
     proximoId : Integer;
@@ -188,7 +186,7 @@ begin
   ClientDataSet2valortotal.AsFloat := ClientDataSet2valorunitario.AsFloat * ClientDataSet2qtde.AsFloat;
 end;
 
-procedure TdtmVenda.ClientDataSet2ReconcileError(DataSet: TCustomClientDataSet; // CDS2 Reconcile Error
+procedure TdtmVenda.ClientDataSet2ReconcileError(DataSet: TCustomClientDataSet;
   E: EReconcileError; UpdateKind: TUpdateKind; var Action: TReconcileAction);
 begin
   ShowMessage(E.Message);
@@ -254,12 +252,12 @@ begin
      begin
        if SourceDS.Name = FDQuery2.Name then
        begin
-          SubtrairProduto(SourceDS.FieldByName('idproduto').AsInteger,
-            DeltaDS.FieldByName('qtde').AsFloat,SourceDS.FieldByName('qtde').AsFloat);
-
+          SubtrairProduto(DeltaDS.FieldByName('idproduto').AsInteger, -DeltaDS.FieldByName('qtdeantigo').AsFloat, 0);
+          SubtrairProduto(DeltaDS.FieldByName('idproduto').AsInteger, DeltaDS.FieldByName('qtde').AsFloat, 0);
        end;
      end;
   end;
+
 end;
 
 function TdtmVenda.getProximoId: integer;
@@ -274,8 +272,7 @@ begin
   FDQuery8.Close;
   FDQuery8.ParamByName('idv').AsInteger := nota;
   FDQuery8.ParamByName('idp').AsInteger := produto;
-  FDQuery8.Open;
-  result := FDQuery8qtde.AsFloat;
+
 end;
 
 procedure TdtmVenda.SubtrairProduto(produto : integer; qtde: double; qtdeantigo: double);

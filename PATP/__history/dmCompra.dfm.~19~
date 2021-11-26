@@ -35,7 +35,7 @@ object dtmCompra: TdtmCompra
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = FDQuery1
-    BeforeUpdateRecord = DataSetProvider1BeforeUpdateRecord
+    AfterUpdateRecord = DataSetProvider1AfterUpdateRecord
     Left = 48
     Top = 152
   end
@@ -83,18 +83,19 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery2: TFDQuery
+    Active = True
     MasterSource = DataSource1
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
       'from itenscompra i '
-      'where i.idcompra = :idcompra'
+      'where i.idcompra = :id'
       '')
     Left = 128
     Top = 48
     ParamData = <
       item
-        Name = 'IDCOMPRA'
+        Name = 'ID'
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
@@ -188,7 +189,6 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery5: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -279,7 +279,6 @@ object dtmCompra: TdtmCompra
     end
   end
   object ClientDataSet2: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = ClientDataSet1FDQuery2
     Params = <>

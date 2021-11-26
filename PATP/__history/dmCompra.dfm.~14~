@@ -35,15 +35,15 @@ object dtmCompra: TdtmCompra
   end
   object DataSetProvider1: TDataSetProvider
     DataSet = FDQuery1
-    BeforeUpdateRecord = DataSetProvider1BeforeUpdateRecord
+    AfterUpdateRecord = DataSetProvider1AfterUpdateRecord
     Left = 48
     Top = 152
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
+    AfterPost = ClientDataSet1AfterPost
     BeforeDelete = ClientDataSet1BeforeDelete
     AfterDelete = ClientDataSet1AfterDelete
     OnNewRecord = ClientDataSet1NewRecord
@@ -88,13 +88,13 @@ object dtmCompra: TdtmCompra
     SQL.Strings = (
       'select *'
       'from itenscompra i '
-      'where i.idcompra = :idcompra'
+      'where i.idcompra = :id'
       '')
     Left = 128
     Top = 48
     ParamData = <
       item
-        Name = 'IDCOMPRA'
+        Name = 'ID'
         DataType = ftInteger
         ParamType = ptInput
         Value = Null
@@ -133,7 +133,6 @@ object dtmCompra: TdtmCompra
     Top = 104
   end
   object FDQuery3: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -188,7 +187,6 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery5: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -238,8 +236,8 @@ object dtmCompra: TdtmCompra
       '     left join itenscompra i on i.idcompra = c.idcompra '
       'group by c.idcompra'
       'order by c.datacompra , c.idcompra ')
-    Left = 208
-    Top = 184
+    Left = 280
+    Top = 112
     object FDQuery6idcompra: TIntegerField
       FieldName = 'idcompra'
       Origin = 'idcompra'
@@ -279,15 +277,12 @@ object dtmCompra: TdtmCompra
     end
   end
   object ClientDataSet2: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = ClientDataSet1FDQuery2
     Params = <>
     BeforeEdit = ClientDataSet2BeforeEdit
     BeforePost = ClientDataSet2BeforePost
     BeforeDelete = ClientDataSet2BeforeDelete
-    OnNewRecord = ClientDataSet2NewRecord
-    OnReconcileError = ClientDataSet2ReconcileError
     Left = 128
     Top = 208
     object ClientDataSet2idcompra: TIntegerField
@@ -295,13 +290,6 @@ object dtmCompra: TdtmCompra
       Origin = 'idcompra'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
-    end
-    object ClientDataSet2idproduto: TIntegerField
-      FieldName = 'idproduto'
-      Origin = 'idproduto'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      OnChange = ClientDataSet2idprodutoChange
     end
     object ClientDataSet2qtde: TIntegerField
       FieldName = 'qtde'
@@ -317,70 +305,11 @@ object dtmCompra: TdtmCompra
       FieldName = 'valortotal'
       Origin = 'valortotal'
     end
-    object ClientDataSet2NomeProduto: TStringField
-      FieldKind = fkLookup
-      FieldName = 'NomeProduto'
-      LookupDataSet = FDQuery5
-      LookupKeyFields = 'idproduto'
-      LookupResultField = 'nome'
-      KeyFields = 'idproduto'
-      Size = 95
-      Lookup = True
-    end
-  end
-  object FDQuery7: TFDQuery
-    Connection = dtmConexao.FDConnection1
-    SQL.Strings = (
-      'update produto p '
-      'set p.qtde = p.qtde - :qtantigo + :qt'
-      'where p.idproduto = :id ')
-    Left = 272
-    Top = 184
-    ParamData = <
-      item
-        Name = 'QTANTIGO'
-        DataType = ftFloat
-        ParamType = ptInput
-        Value = Null
-      end
-      item
-        Name = 'QT'
-        DataType = ftFloat
-        ParamType = ptInput
-        Value = Null
-      end
-      item
-        Name = 'ID'
-        DataType = ftInteger
-        ParamType = ptInput
-        Value = Null
-      end>
-  end
-  object FDQuery8: TFDQuery
-    Connection = dtmConexao.FDConnection1
-    SQL.Strings = (
-      'select i.qtde from itenscompra i'
-      'where idcompra = :idc'
-      'and idproduto = :idp')
-    Left = 328
-    Top = 184
-    ParamData = <
-      item
-        Name = 'IDC'
-        DataType = ftInteger
-        ParamType = ptInput
-        Value = Null
-      end
-      item
-        Name = 'IDP'
-        DataType = ftInteger
-        ParamType = ptInput
-        Value = Null
-      end>
-    object FDQuery8qtde: TIntegerField
-      AutoGenerateValue = arDefault
-      FieldName = 'qtde'
-      Origin = 'qtde'
+    object ClientDataSet2idproduto: TIntegerField
+      FieldName = 'idproduto'
+      Origin = 'idproduto'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
     end
   end
 end

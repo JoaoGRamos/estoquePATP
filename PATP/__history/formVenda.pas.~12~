@@ -53,26 +53,20 @@ procedure TfrmVenda.AbrirCadastro(Novo: Boolean);
 begin
   EditVenda := TEditVenda.Create(Self);
   try
-    if novo then
-      dtmvenda.ClientDataSet1.Append
+    if Novo then
+      dtmVenda.ClientDataSet1.Append
     else
     begin
-      dtmvenda.ClientDataSet1.Locate('idvenda', dtmvenda.FDQuery6idvenda.AsInteger, []);
-      dtmvenda.ClientDataSet1.Edit;
+      dtmVenda.ClientDataSet1.Locate('idvenda',
+        dtmVenda.FDQuery2idvenda.AsInteger, []);
+      dtmVenda.ClientDataSet1.Edit;
     end;
+
     if EditVenda.ShowModal = mrOk then
-    begin
-      dtmVenda.ClientDataSet1.Post;
-      try
-        if dtmVenda.ClientDataSet2.State in dsEditModes then
-          dtmVenda.ClientDataSet2.Post;
-      except
-        dtmVenda.ClientDataSet2.Cancel;
-      end;
-      dtmVenda.AplicarMudancas;
-    end
+      dtmVenda.ClientDataSet1.Post
     else
       dtmVenda.ClientDataSet1.Cancel;
+    dtmVenda.FDQuery2.Refresh;
   finally
     FreeAndNil(EditVenda);
   end;
@@ -86,7 +80,7 @@ end;
 
 procedure TfrmVenda.EditarClick(Sender: TObject);
 begin
-  AbrirCadastro(dtmVenda.FDQuery6.IsEmpty);
+  AbrirCadastro(dtmVenda.FDQuery2.IsEmpty);
 end;
 
 procedure TfrmVenda.FecharClick(Sender: TObject);
@@ -96,7 +90,7 @@ end;
 
 procedure TfrmVenda.FormDblClick(Sender: TObject);
 begin
-  AbrirCadastro(dtmVenda.FDQuery6.IsEmpty);
+  AbrirCadastro(dtmVenda.FDQuery2.IsEmpty);
 end;
 
 procedure TfrmVenda.NovoClick(Sender: TObject);

@@ -188,7 +188,7 @@ begin
   ClientDataSet2valortotal.AsFloat := ClientDataSet2valorunitario.AsFloat * ClientDataSet2qtde.AsFloat;
 end;
 
-procedure TdtmVenda.ClientDataSet2ReconcileError(DataSet: TCustomClientDataSet; // CDS2 Reconcile Error
+procedure TdtmVenda.ClientDataSet2ReconcileError(DataSet: TCustomClientDataSet;
   E: EReconcileError; UpdateKind: TUpdateKind; var Action: TReconcileAction);
 begin
   ShowMessage(E.Message);
