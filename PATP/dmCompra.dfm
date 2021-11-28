@@ -4,6 +4,7 @@ object dtmCompra: TdtmCompra
   Height = 309
   Width = 393
   object FDQuery1: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -83,8 +84,13 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery2: TFDQuery
+    Active = True
     MasterSource = DataSource1
+    MasterFields = 'idcompra'
+    DetailFields = 'idcompra'
     Connection = dtmConexao.FDConnection1
+    FetchOptions.AssignedValues = [evCache]
+    FetchOptions.Cache = [fiBlobs, fiMeta]
     SQL.Strings = (
       'select *'
       'from itenscompra i '
@@ -173,6 +179,7 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery4: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select ifnull(max(c.idcompra)+1, 1) proximo_id'
@@ -230,6 +237,7 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery6: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select c.*, f.nome, count(*) produto'
@@ -357,6 +365,7 @@ object dtmCompra: TdtmCompra
       end>
   end
   object FDQuery8: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select i.qtde from itenscompra i'

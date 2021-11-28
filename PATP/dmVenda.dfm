@@ -38,6 +38,7 @@ object dtmVenda: TdtmVenda
     Top = 152
   end
   object ClientDataSet1: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
@@ -80,8 +81,13 @@ object dtmVenda: TdtmVenda
     end
   end
   object FDQuery2: TFDQuery
+    Active = True
     MasterSource = DataSource1
+    MasterFields = 'idvenda'
+    DetailFields = 'idvenda'
     Connection = dtmConexao.FDConnection1
+    FetchOptions.AssignedValues = [evCache]
+    FetchOptions.Cache = [fiBlobs, fiMeta]
     SQL.Strings = (
       'select *'
       'from itensvenda i '
@@ -93,7 +99,7 @@ object dtmVenda: TdtmVenda
         Name = 'IDVENDA'
         DataType = ftInteger
         ParamType = ptInput
-        Value = Null
+        Value = 7
       end>
     object FDQuery2idvenda: TIntegerField
       FieldName = 'idvenda'
@@ -124,6 +130,7 @@ object dtmVenda: TdtmVenda
     end
   end
   object FDQuery3: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -172,6 +179,7 @@ object dtmVenda: TdtmVenda
     end
   end
   object FDQuery5: TFDQuery
+    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -260,6 +268,7 @@ object dtmVenda: TdtmVenda
     end
   end
   object ClientDataSet2: TClientDataSet
+    Active = True
     Aggregates = <>
     DataSetField = ClientDataSet1FDQuery2
     Params = <>

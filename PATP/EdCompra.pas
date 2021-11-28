@@ -49,5 +49,4 @@ procedure TEditCompra.SalvarClick(Sender: TObject);
 begin
   ModalResult := mrOk;
 end;
-
 end.

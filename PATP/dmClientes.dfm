@@ -41,7 +41,6 @@ object dtmClientes: TdtmClientes
       FieldName = 'idcliente'
       Origin = 'idcliente'
       ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
     end
     object FDQuery2nome: TStringField
       AutoGenerateValue = arDefault

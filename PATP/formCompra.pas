@@ -59,15 +59,23 @@ begin
     else
     begin
       dtmCompra.ClientDataSet1.Locate('idcompra',
-        dtmCompra.FDQuery2idcompra.AsInteger, []);
+        dtmCompra.FDQuery6idcompra.AsInteger, []);
       dtmCompra.ClientDataSet1.Edit;
     end;
 
     if EditCompra.ShowModal = mrOk then
-      dtmCompra.ClientDataSet1.Post
+    begin
+      dtmCompra.ClientDataSet1.Post;
+      try
+        if dtmCompra.ClientDataSet2.State in dsEditModes then
+        dtmCompra.ClientDataSet2.Post;
+      except
+        dtmCompra.ClientDataSet2.Cancel;
+      end;
+      dtmCompra.AplicarMudancas;
+    end
     else
       dtmCompra.ClientDataSet1.Cancel;
-    dtmCompra.FDQuery2.Refresh;
   finally
     FreeAndNil(EditCompra);
   end;

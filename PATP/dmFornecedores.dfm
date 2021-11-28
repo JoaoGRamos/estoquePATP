@@ -40,7 +40,6 @@ object dtmFornecedores: TdtmFornecedores
       FieldName = 'idfornecedor'
       Origin = 'idfornecedor'
       ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
     end
     object FDQuery2nome: TStringField
       AutoGenerateValue = arDefault

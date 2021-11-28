@@ -133,7 +133,6 @@ begin
   ClientDataSet1.ApplyUpdates(-1);
 end;
 
-
 procedure TdtmCompra.ClientDataSet1BeforeDelete(DataSet: TDataSet); // CDS1 Before Delete
 begin
   ClientDataSet2.First;

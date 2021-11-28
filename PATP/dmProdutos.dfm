@@ -118,10 +118,14 @@ object dtmProdutos: TdtmProdutos
     Left = 184
     Top = 64
     object FDQuery2idproduto: TFDAutoIncField
+      AutoGenerateValue = arNone
       FieldName = 'idproduto'
       Origin = 'idproduto'
-      ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ServerAutoIncrement = False
+      AutoIncrementSeed = 1
+      AutoIncrementStep = 1
+      IdentityInsert = True
     end
     object FDQuery2nome: TStringField
       AutoGenerateValue = arDefault

@@ -30,7 +30,7 @@ object dtmCategoria: TdtmCategoria
     object ClientDataSet1idcat: TAutoIncField
       FieldName = 'idcat'
       Origin = 'idcat'
-      ProviderFlags = [pfInWhere, pfInKey]
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       ReadOnly = True
     end
     object ClientDataSet1catnome: TStringField
@@ -48,13 +48,19 @@ object dtmCategoria: TdtmCategoria
     Left = 272
     Top = 64
     object FDQuery2idcat: TFDAutoIncField
+      AutoGenerateValue = arNone
+      DisplayLabel = 'ID Categoria'
       FieldName = 'idcat'
       Origin = 'idcat'
-      ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ServerAutoIncrement = False
+      AutoIncrementSeed = 1
+      AutoIncrementStep = 1
+      IdentityInsert = True
     end
     object FDQuery2catnome: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome da Categoria'
       FieldName = 'catnome'
       Origin = 'catnome'
       Size = 95

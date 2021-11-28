@@ -47,5 +47,4 @@ procedure TEditVenda.Button2Click(Sender: TObject);
 begin
   ModalResult := mrCancel
 end;
-
 end.
