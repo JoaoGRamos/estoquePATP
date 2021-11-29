@@ -6,7 +6,6 @@ uses
   dmConexao in 'dmConexao.pas' {dtmConexao: TDataModule},
   dmProdutos in 'dmProdutos.pas' {dtmProdutos: TDataModule},
   dmCategorias in 'dmCategorias.pas' {dtmCategoria: TDataModule},
-  dmUnidades in 'dmUnidades.pas' {DataModule5: TDataModule},
   dmClientes in 'dmClientes.pas' {dtmClientes: TDataModule},
   dmFornecedores in 'dmFornecedores.pas' {dtmFornecedores: TDataModule},
   formProdutos in 'formProdutos.pas' {frmProdutos},

@@ -74,22 +74,13 @@ object frmCompra: TfrmCompra
       VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbRefresh]
       TabOrder = 0
     end
-    object Deletar: TButton
-      Left = 290
-      Top = 16
-      Width = 75
-      Height = 25
-      Caption = 'Deletar'
-      TabOrder = 1
-      OnClick = DeletarClick
-    end
     object Editar: TButton
       Left = 201
       Top = 16
       Width = 75
       Height = 25
       Caption = 'Editar'
-      TabOrder = 2
+      TabOrder = 1
       OnClick = EditarClick
     end
     object Novo: TButton
@@ -98,7 +89,7 @@ object frmCompra: TfrmCompra
       Width = 75
       Height = 25
       Caption = 'Novo'
-      TabOrder = 3
+      TabOrder = 2
       OnClick = NovoClick
     end
     object Fechar: TButton
@@ -107,7 +98,7 @@ object frmCompra: TfrmCompra
       Width = 75
       Height = 25
       Caption = 'Fechar'
-      TabOrder = 4
+      TabOrder = 3
       OnClick = FecharClick
     end
   end

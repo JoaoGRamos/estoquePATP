@@ -344,6 +344,7 @@ object dtmCompra: TdtmCompra
       DisplayLabel = 'Valor Total'
       FieldName = 'valortotal'
       Origin = 'valortotal'
+      currency = True
     end
   end
   object FDQuery7: TFDQuery

@@ -27,6 +27,7 @@ object frmVenda: TfrmVenda
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False
@@ -82,7 +83,7 @@ object frmVenda: TfrmVenda
       TabOrder = 0
     end
     object Novo: TButton
-      Left = 37
+      Left = 85
       Top = 18
       Width = 75
       Height = 25
@@ -91,7 +92,7 @@ object frmVenda: TfrmVenda
       OnClick = NovoClick
     end
     object Editar: TButton
-      Left = 118
+      Left = 166
       Top = 18
       Width = 75
       Height = 25
@@ -99,21 +100,13 @@ object frmVenda: TfrmVenda
       TabOrder = 2
       OnClick = EditarClick
     end
-    object Deletar: TButton
-      Left = 199
-      Top = 18
-      Width = 75
-      Height = 25
-      Caption = 'Deletar'
-      TabOrder = 3
-    end
     object Fechar: TButton
       Left = 528
       Top = 18
       Width = 75
       Height = 25
       Caption = 'Fechar'
-      TabOrder = 4
+      TabOrder = 3
       OnClick = FecharClick
     end
   end

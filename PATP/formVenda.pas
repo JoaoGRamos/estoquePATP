@@ -15,7 +15,6 @@ type
     DBNavigator1: TDBNavigator;
     Novo: TButton;
     Editar: TButton;
-    Deletar: TButton;
     Fechar: TButton;
     Panel2: TPanel;
     Label1: TLabel;
@@ -33,6 +32,7 @@ type
     procedure FormDblClick(Sender: TObject);
     procedure chkUsardataClick(Sender: TObject);
     procedure PesquisarClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     { Private declarations }
     procedure AbrirCadastro (Novo: Boolean);
@@ -82,6 +82,11 @@ procedure TfrmVenda.chkUsardataClick(Sender: TObject);
 begin
   dpData1.Enabled := chkUsardata.Checked;
   dpData2.Enabled := chkUsardata.Checked;
+end;
+
+procedure TfrmVenda.DBGrid1DblClick(Sender: TObject);
+begin
+  AbrirCadastro(dtmVenda.FDQuery6.IsEmpty);
 end;
 
 procedure TfrmVenda.EditarClick(Sender: TObject);

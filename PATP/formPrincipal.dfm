@@ -1,7 +1,7 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
-  Caption = 'frmPrincipal'
+  Caption = 'Controle de Estoque'
   ClientHeight = 368
   ClientWidth = 374
   Color = clBtnFace

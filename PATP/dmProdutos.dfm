@@ -105,6 +105,7 @@ object dtmProdutos: TdtmProdutos
       Lookup = True
     end
     object ClientDataSet1valorunitario: TSingleField
+      DisplayLabel = 'Valor Unit'#225'rio'
       FieldName = 'valorunitario'
       currency = True
     end

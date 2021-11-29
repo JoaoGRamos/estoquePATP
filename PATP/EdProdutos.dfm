@@ -1,7 +1,7 @@
 object EdtProdutos: TEdtProdutos
   Left = 0
   Top = 0
-  Caption = 'Editar produtos'
+  Caption = 'Produto'
   ClientHeight = 350
   ClientWidth = 295
   Color = clBtnFace

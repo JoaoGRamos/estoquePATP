@@ -1,7 +1,7 @@
 object frmClientes: TfrmClientes
   Left = 0
   Top = 0
-  Caption = 'frmClientes'
+  Caption = 'Cadastro de Clientes'
   ClientHeight = 379
   ClientWidth = 640
   Color = clBtnFace

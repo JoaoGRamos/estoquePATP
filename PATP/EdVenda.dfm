@@ -1,7 +1,7 @@
 object EditVenda: TEditVenda
   Left = 0
   Top = 0
-  Caption = 'EditVenda'
+  Caption = 'Venda'
   ClientHeight = 466
   ClientWidth = 697
   Color = clBtnFace

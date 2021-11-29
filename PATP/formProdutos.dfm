@@ -1,7 +1,7 @@
 object frmProdutos: TfrmProdutos
   Left = 0
   Top = 0
-  Caption = 'frmProdutos'
+  Caption = 'Cadastro de Produtos'
   ClientHeight = 376
   ClientWidth = 761
   Color = clBtnFace
@@ -38,13 +38,19 @@ object frmProdutos: TfrmProdutos
       item
         Expanded = False
         FieldName = 'nome'
-        Width = 372
+        Width = 253
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'qtde'
         Width = 77
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'valorunitario'
+        Width = 111
         Visible = True
       end
       item

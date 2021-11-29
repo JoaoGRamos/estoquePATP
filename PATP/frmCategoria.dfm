@@ -1,7 +1,7 @@
 object formCategoria: TformCategoria
   Left = 0
   Top = 0
-  Caption = 'Categoria'
+  Caption = 'Cadastro de Categoria'
   ClientHeight = 376
   ClientWidth = 656
   Color = clBtnFace

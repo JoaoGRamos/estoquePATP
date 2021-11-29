@@ -1,7 +1,7 @@
 object frmFornecedores: TfrmFornecedores
   Left = 0
   Top = 0
-  Caption = 'frmFornecedores'
+  Caption = 'Cadastro de Forncedores'
   ClientHeight = 375
   ClientWidth = 755
   Color = clBtnFace

@@ -13,7 +13,6 @@ type
     DBNavigator1: TDBNavigator;
     Novo: TButton;
     Editar: TButton;
-    Deletar: TButton;
     Fechar: TButton;
     DataSource1: TDataSource;
     Panel1: TPanel;
@@ -118,7 +117,7 @@ end;
 
 procedure TfrmCompra.DBGrid1DblClick(Sender: TObject);
 begin
-  AbrirCadastro(dtmCompra.FDQuery2.IsEmpty);
+  AbrirCadastro(dtmCompra.FDQuery6.IsEmpty);
 end;
 
 procedure TfrmCompra.DeletarClick(Sender: TObject);
