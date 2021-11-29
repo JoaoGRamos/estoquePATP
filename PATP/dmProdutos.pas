@@ -31,7 +31,6 @@ type
     FDQuery5: TFDQuery;
     ClientDataSet1Categoria: TStringField;
     FDQuery2catnome: TStringField;
-    FDQuery1idproduto: TIntegerField;
     FDQuery1nome: TStringField;
     FDQuery1valorunitario: TSingleField;
     FDQuery1qtde: TSingleField;
@@ -39,6 +38,7 @@ type
     FDQuery1idcat: TIntegerField;
     FDQuery2valorunitario: TSingleField;
     ClientDataSet1valorunitario: TSingleField;
+    FDQuery1idproduto: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
     procedure ClientDataSet1AfterPost(DataSet: TDataSet);
     procedure ClientDataSet1ReconcileError(DataSet: TCustomClientDataSet;

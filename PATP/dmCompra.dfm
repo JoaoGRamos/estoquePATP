@@ -4,7 +4,6 @@ object dtmCompra: TdtmCompra
   Height = 309
   Width = 393
   object FDQuery1: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -41,7 +40,6 @@ object dtmCompra: TdtmCompra
     Top = 152
   end
   object ClientDataSet1: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'DataSetProvider1'
@@ -84,7 +82,6 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery2: TFDQuery
-    Active = True
     MasterSource = DataSource1
     MasterFields = 'idcompra'
     DetailFields = 'idcompra'
@@ -103,7 +100,7 @@ object dtmCompra: TdtmCompra
         Name = 'IDCOMPRA'
         DataType = ftInteger
         ParamType = ptInput
-        Value = Null
+        Value = 1
       end>
     object FDQuery2idcompra: TIntegerField
       FieldName = 'idcompra'
@@ -139,7 +136,6 @@ object dtmCompra: TdtmCompra
     Top = 104
   end
   object FDQuery3: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -179,7 +175,6 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery4: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select ifnull(max(c.idcompra)+1, 1) proximo_id'
@@ -195,7 +190,6 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery5: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select *'
@@ -237,57 +231,67 @@ object dtmCompra: TdtmCompra
     end
   end
   object FDQuery6: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select c.*, f.nome, count(*) produto'
       'from compra c'
-      '     inner join fornecedor f on f.idfornecedor = c.idfornecedor '
+      '     inner join fornecedor f on f.idfornecedor = c.idfornecedor'
       '     left join itenscompra i on i.idcompra = c.idcompra '
       'group by c.idcompra'
       'order by c.datacompra , c.idcompra ')
     Left = 208
     Top = 184
     object FDQuery6idcompra: TIntegerField
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
       FieldName = 'idcompra'
       Origin = 'idcompra'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
+    object FDQuery6produto: TLargeintField
+      AutoGenerateValue = arDefault
+      DisplayLabel = 'ID Produto'
+      DisplayWidth = 15
+      FieldName = 'produto'
+      Origin = 'produto'
+      ProviderFlags = []
+      ReadOnly = True
+    end
     object FDQuery6datacompra: TDateField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Data da compra'
+      DisplayWidth = 10
       FieldName = 'datacompra'
       Origin = 'datacompra'
     end
     object FDQuery6precototal: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Pre'#231'o Total'
+      DisplayWidth = 95
       FieldName = 'precototal'
       Origin = 'precototal'
       Size = 95
     end
     object FDQuery6idfornecedor: TIntegerField
       AutoGenerateValue = arDefault
+      DisplayWidth = 10
       FieldName = 'idfornecedor'
       Origin = 'idfornecedor'
+      Visible = False
     end
     object FDQuery6nome: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome do Fornecedor'
+      DisplayWidth = 95
       FieldName = 'nome'
       Origin = 'nome'
       ProviderFlags = []
       ReadOnly = True
       Size = 95
     end
-    object FDQuery6produto: TLargeintField
-      AutoGenerateValue = arDefault
-      FieldName = 'produto'
-      Origin = 'produto'
-      ProviderFlags = []
-      ReadOnly = True
-    end
   end
   object ClientDataSet2: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = ClientDataSet1FDQuery2
     Params = <>
@@ -299,33 +303,22 @@ object dtmCompra: TdtmCompra
     Left = 128
     Top = 208
     object ClientDataSet2idcompra: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idcompra'
       Origin = 'idcompra'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object ClientDataSet2idproduto: TIntegerField
+      DisplayLabel = 'ID Produto'
       FieldName = 'idproduto'
       Origin = 'idproduto'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       OnChange = ClientDataSet2idprodutoChange
     end
-    object ClientDataSet2qtde: TIntegerField
-      FieldName = 'qtde'
-      Origin = 'qtde'
-      OnChange = ClientDataSet2qtdeChange
-    end
-    object ClientDataSet2valorunitario: TLargeintField
-      FieldName = 'valorunitario'
-      Origin = 'valorunitario'
-      OnChange = ClientDataSet2valorunitarioChange
-    end
-    object ClientDataSet2valortotal: TSingleField
-      FieldName = 'valortotal'
-      Origin = 'valortotal'
-    end
     object ClientDataSet2NomeProduto: TStringField
+      DisplayLabel = 'Nome do Produto'
       FieldKind = fkLookup
       FieldName = 'NomeProduto'
       LookupDataSet = FDQuery5
@@ -334,6 +327,23 @@ object dtmCompra: TdtmCompra
       KeyFields = 'idproduto'
       Size = 95
       Lookup = True
+    end
+    object ClientDataSet2qtde: TIntegerField
+      DisplayLabel = 'Quantidade'
+      FieldName = 'qtde'
+      Origin = 'qtde'
+      OnChange = ClientDataSet2qtdeChange
+    end
+    object ClientDataSet2valorunitario: TLargeintField
+      DisplayLabel = 'Valor Unit'#225'rio'
+      FieldName = 'valorunitario'
+      Origin = 'valorunitario'
+      OnChange = ClientDataSet2valorunitarioChange
+    end
+    object ClientDataSet2valortotal: TSingleField
+      DisplayLabel = 'Valor Total'
+      FieldName = 'valortotal'
+      Origin = 'valortotal'
     end
   end
   object FDQuery7: TFDQuery
@@ -365,7 +375,6 @@ object dtmCompra: TdtmCompra
       end>
   end
   object FDQuery8: TFDQuery
-    Active = True
     Connection = dtmConexao.FDConnection1
     SQL.Strings = (
       'select i.qtde from itenscompra i'

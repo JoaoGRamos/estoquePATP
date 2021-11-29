@@ -37,13 +37,16 @@ object dtmClientes: TdtmClientes
     Left = 192
     Top = 64
     object FDQuery2idcliente: TFDAutoIncField
+      DisplayLabel = 'ID'
       DisplayWidth = 8
       FieldName = 'idcliente'
       Origin = 'idcliente'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQuery2nome: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome'
       DisplayWidth = 95
       FieldName = 'nome'
       Origin = 'nome'
@@ -51,6 +54,7 @@ object dtmClientes: TdtmClientes
     end
     object FDQuery2cpf: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'CPF'
       DisplayWidth = 43
       FieldName = 'cpf'
       Origin = 'cpf'
@@ -58,6 +62,7 @@ object dtmClientes: TdtmClientes
     end
     object FDQuery2fone: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Telefone'
       DisplayWidth = 95
       FieldName = 'fone'
       Origin = 'fone'

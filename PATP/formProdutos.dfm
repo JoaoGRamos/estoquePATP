@@ -32,29 +32,31 @@ object frmProdutos: TfrmProdutos
       item
         Expanded = False
         FieldName = 'idproduto'
-        Width = 50
+        Width = 32
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'nome'
-        Width = 150
+        Width = 372
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'qtde'
+        Width = 77
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'umedida'
-        Width = 50
+        Width = 102
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'catnome'
+        Width = 164
         Visible = True
       end>
   end
@@ -156,7 +158,7 @@ object frmProdutos: TfrmProdutos
   end
   object DataSource1: TDataSource
     DataSet = dtmProdutos.FDQuery2
-    Left = 376
-    Top = 216
+    Left = 536
+    Top = 248
   end
 end

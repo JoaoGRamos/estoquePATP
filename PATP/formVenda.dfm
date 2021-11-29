@@ -30,12 +30,14 @@ object frmVenda: TfrmVenda
     Columns = <
       item
         Expanded = False
-        FieldName = 'idcliente'
+        FieldName = 'idvenda'
+        Width = 40
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'idvenda'
+        FieldName = 'produto'
+        Width = 59
         Visible = True
       end
       item
@@ -47,13 +49,13 @@ object frmVenda: TfrmVenda
       item
         Expanded = False
         FieldName = 'precototal'
-        Width = 150
+        Width = 134
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'nome'
-        Width = 150
+        Width = 279
         Visible = True
       end>
   end

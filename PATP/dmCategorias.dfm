@@ -31,7 +31,7 @@ object dtmCategoria: TdtmCategoria
       FieldName = 'idcat'
       Origin = 'idcat'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      ReadOnly = True
+      Required = True
     end
     object ClientDataSet1catnome: TStringField
       FieldName = 'catnome'

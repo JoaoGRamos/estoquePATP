@@ -19,6 +19,7 @@ object EditCompra: TEditCompra
     Width = 69
     Height = 13
     Caption = 'Id da Compra:'
+    Visible = False
   end
   object Label4: TLabel
     Left = 480
@@ -28,14 +29,14 @@ object EditCompra: TEditCompra
     Caption = 'Pre'#231'o Total:'
   end
   object Label2: TLabel
-    Left = 152
+    Left = 96
     Top = 21
     Width = 78
     Height = 13
     Caption = 'Data da Compra'
   end
   object Label3: TLabel
-    Left = 336
+    Left = 280
     Top = 21
     Width = 104
     Height = 13
@@ -49,6 +50,7 @@ object EditCompra: TEditCompra
     DataField = 'idcompra'
     DataSource = DataSource1
     TabOrder = 0
+    Visible = False
   end
   object DBEdit4: TDBEdit
     Left = 544
@@ -79,7 +81,7 @@ object EditCompra: TEditCompra
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 136
+    Top = 134
     Width = 697
     Height = 281
     DataSource = DataSource2
@@ -89,6 +91,41 @@ object EditCompra: TEditCompra
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'idcompra'
+        Width = 32
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'idproduto'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NomeProduto'
+        Width = 238
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'qtde'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'valorunitario'
+        Width = 112
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'valortotal'
+        Width = 165
+        Visible = True
+      end>
   end
   object DBNavigator1: TDBNavigator
     Left = 4
@@ -99,7 +136,7 @@ object EditCompra: TEditCompra
     TabOrder = 5
   end
   object DBEdit2: TDBEdit
-    Left = 152
+    Left = 96
     Top = 40
     Width = 121
     Height = 21
@@ -108,7 +145,7 @@ object EditCompra: TEditCompra
     TabOrder = 6
   end
   object DBLookupComboBox1: TDBLookupComboBox
-    Left = 336
+    Left = 280
     Top = 40
     Width = 145
     Height = 21

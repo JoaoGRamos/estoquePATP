@@ -11,6 +11,7 @@ object dtmVenda: TdtmVenda
     Left = 64
     Top = 48
     object FDQuery1idvenda: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idvenda'
       Required = True
     end
@@ -102,6 +103,7 @@ object dtmVenda: TdtmVenda
         Value = 7
       end>
     object FDQuery2idvenda: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idvenda'
       Origin = 'idvenda'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -109,16 +111,19 @@ object dtmVenda: TdtmVenda
     end
     object FDQuery2qtde: TIntegerField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Quantidade'
       FieldName = 'qtde'
       Origin = 'qtde'
     end
     object FDQuery2valorunitario: TLargeintField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Valor Unitario'
       FieldName = 'valorunitario'
       Origin = 'valorunitario'
     end
     object FDQuery2valortotal: TLargeintField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Valor Total'
       FieldName = 'valortotal'
       Origin = 'valortotal'
     end
@@ -127,6 +132,7 @@ object dtmVenda: TdtmVenda
       Origin = 'idproduto'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      Visible = False
     end
   end
   object FDQuery3: TFDQuery
@@ -228,8 +234,9 @@ object dtmVenda: TdtmVenda
       'group by v.idvenda '
       'order by v.datavenda, v.idvenda')
     Left = 224
-    Top = 192
+    Top = 200
     object FDQuery6idvenda: TIntegerField
+      DisplayLabel = 'ID'
       FieldName = 'idvenda'
       Origin = 'idvenda'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -237,22 +244,20 @@ object dtmVenda: TdtmVenda
     end
     object FDQuery6datavenda: TDateField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Data da Venda'
       FieldName = 'datavenda'
       Origin = 'datavenda'
     end
     object FDQuery6precototal: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Pre'#231'o Total'
       FieldName = 'precototal'
       Origin = 'precototal'
       Size = 95
     end
-    object FDQuery6idcliente: TIntegerField
-      AutoGenerateValue = arDefault
-      FieldName = 'idcliente'
-      Origin = 'idcliente'
-    end
     object FDQuery6nome: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome do Cliente'
       FieldName = 'nome'
       Origin = 'nome'
       ProviderFlags = []
@@ -261,10 +266,17 @@ object dtmVenda: TdtmVenda
     end
     object FDQuery6produto: TLargeintField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'ID Produto'
       FieldName = 'produto'
       Origin = 'produto'
       ProviderFlags = []
       ReadOnly = True
+    end
+    object FDQuery6idcliente: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'idcliente'
+      Origin = 'idcliente'
+      Visible = False
     end
   end
   object ClientDataSet2: TClientDataSet
@@ -280,14 +292,16 @@ object dtmVenda: TdtmVenda
     Left = 144
     Top = 232
     object ClientDataSet2idvenda: TIntegerField
-      DisplayWidth = 10
+      DisplayLabel = 'ID'
+      DisplayWidth = 5
       FieldName = 'idvenda'
       Origin = 'idvenda'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
     object ClientDataSet2idproduto: TIntegerField
-      DisplayWidth = 10
+      DisplayLabel = 'ID Produto'
+      DisplayWidth = 9
       FieldName = 'idproduto'
       Origin = 'idproduto'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -295,7 +309,8 @@ object dtmVenda: TdtmVenda
       OnChange = ClientDataSet2idprodutoChange
     end
     object ClientDataSet2NomeProduto: TStringField
-      DisplayWidth = 36
+      DisplayLabel = 'Nome do Produto'
+      DisplayWidth = 57
       FieldKind = fkLookup
       FieldName = 'NomeProduto'
       LookupDataSet = FDQuery5
@@ -305,22 +320,25 @@ object dtmVenda: TdtmVenda
       Size = 95
       Lookup = True
     end
+    object ClientDataSet2qtde: TIntegerField
+      DisplayLabel = 'Quantidade'
+      DisplayWidth = 10
+      FieldName = 'qtde'
+      Origin = 'qtde'
+      OnChange = ClientDataSet2qtdeChange
+    end
     object ClientDataSet2valorunitario: TLargeintField
-      DisplayWidth = 15
+      DisplayLabel = 'Valor Unit'#225'rio'
+      DisplayWidth = 11
       FieldName = 'valorunitario'
       Origin = 'valorunitario'
       OnChange = ClientDataSet2valorunitarioChange
     end
     object ClientDataSet2valortotal: TLargeintField
+      DisplayLabel = 'Valor Total'
       DisplayWidth = 15
       FieldName = 'valortotal'
       Origin = 'valortotal'
-    end
-    object ClientDataSet2qtde: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'qtde'
-      Origin = 'qtde'
-      OnChange = ClientDataSet2qtdeChange
     end
   end
   object DataSource1: TDataSource

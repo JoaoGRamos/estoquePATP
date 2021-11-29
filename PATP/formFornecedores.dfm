@@ -37,7 +37,7 @@ object frmFornecedores: TfrmFornecedores
       item
         Expanded = False
         FieldName = 'nome'
-        Width = 170
+        Width = 183
         Visible = True
       end
       item

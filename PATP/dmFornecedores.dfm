@@ -37,30 +37,36 @@ object dtmFornecedores: TdtmFornecedores
     Left = 280
     Top = 104
     object FDQuery2idfornecedor: TFDAutoIncField
+      DisplayLabel = 'ID'
       FieldName = 'idfornecedor'
       Origin = 'idfornecedor'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object FDQuery2nome: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome'
       FieldName = 'nome'
       Origin = 'nome'
       Size = 95
     end
     object FDQuery2cnpj: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'CNPJ'
       FieldName = 'cnpj'
       Origin = 'cnpj'
       Size = 95
     end
     object FDQuery2fone: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Telefone'
       FieldName = 'fone'
       Origin = 'fone'
       Size = 95
     end
     object FDQuery2email: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'E-mail'
       FieldName = 'email'
       Origin = 'email'
       Size = 95

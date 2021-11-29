@@ -16,8 +16,8 @@ object frmClientes: TfrmClientes
   TextHeight = 13
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 104
-    Width = 633
+    Top = 111
+    Width = 642
     Height = 273
     DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -38,7 +38,7 @@ object frmClientes: TfrmClientes
       item
         Expanded = False
         FieldName = 'nome'
-        Width = 150
+        Width = 328
         Visible = True
       end
       item
@@ -116,7 +116,7 @@ object frmClientes: TfrmClientes
   object Panel2: TPanel
     Left = 0
     Top = 49
-    Width = 633
+    Width = 641
     Height = 56
     TabOrder = 2
     object Label1: TLabel

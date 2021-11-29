@@ -2,7 +2,7 @@ object frmCompra: TfrmCompra
   Left = 0
   Top = 0
   Caption = 'Compra'
-  ClientHeight = 483
+  ClientHeight = 484
   ClientWidth = 743
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,9 +14,9 @@ object frmCompra: TfrmCompra
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
-    Left = 0
+    Left = -2
     Top = 112
-    Width = 740
+    Width = 747
     Height = 369
     DataSource = DataSource1
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -27,6 +27,30 @@ object frmCompra: TfrmCompra
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnDblClick = DBGrid1DblClick
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'idcompra'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'produto'
+        Width = 65
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'precototal'
+        Width = 328
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nome'
+        Width = 301
+        Visible = True
+      end>
   end
   object Panel1: TPanel
     Left = 0
@@ -161,7 +185,7 @@ object frmCompra: TfrmCompra
     end
   end
   object DataSource1: TDataSource
-    DataSet = dtmCompra.FDQuery2
+    DataSet = dtmCompra.FDQuery6
     Left = 688
     Top = 392
   end

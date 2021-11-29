@@ -18,17 +18,20 @@ object dtmProdutos: TdtmProdutos
     end
     object FDQuery1nome: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome'
       FieldName = 'nome'
       Origin = 'nome'
       Size = 95
     end
     object FDQuery1valorunitario: TSingleField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'V. unitario'
       FieldName = 'valorunitario'
       Origin = 'valorunitario'
     end
     object FDQuery1qtde: TSingleField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Quantidade'
       FieldName = 'qtde'
       Origin = 'qtde'
     end
@@ -39,6 +42,7 @@ object dtmProdutos: TdtmProdutos
     end
     object FDQuery1idcat: TIntegerField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'U. medida'
       FieldName = 'idcat'
       Origin = 'idcat'
     end
@@ -61,7 +65,7 @@ object dtmProdutos: TdtmProdutos
       FieldName = 'idproduto'
       Origin = 'idproduto'
       ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
+      Required = True
     end
     object ClientDataSet1nome: TStringField
       FieldName = 'nome'
@@ -119,6 +123,7 @@ object dtmProdutos: TdtmProdutos
     Top = 64
     object FDQuery2idproduto: TFDAutoIncField
       AutoGenerateValue = arNone
+      DisplayLabel = 'ID'
       FieldName = 'idproduto'
       Origin = 'idproduto'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -129,12 +134,14 @@ object dtmProdutos: TdtmProdutos
     end
     object FDQuery2nome: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Nome do Produto'
       FieldName = 'nome'
       Origin = 'nome'
       Size = 95
     end
     object FDQuery2qtde: TSingleField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Quantiadade'
       FieldName = 'qtde'
       Origin = 'qtde'
     end
@@ -142,9 +149,11 @@ object dtmProdutos: TdtmProdutos
       AutoGenerateValue = arDefault
       FieldName = 'idcat'
       Origin = 'idcat'
+      Visible = False
     end
     object FDQuery2umedida: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Unidade de Medida'
       FieldName = 'umedida'
       Origin = 'umedida'
       ProviderFlags = []
@@ -153,14 +162,16 @@ object dtmProdutos: TdtmProdutos
     end
     object FDQuery2catnome: TStringField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Categoria'
       FieldName = 'catnome'
       Origin = 'catnome'
       ProviderFlags = []
       ReadOnly = True
-      Size = 95
+      Size = 50
     end
     object FDQuery2valorunitario: TSingleField
       AutoGenerateValue = arDefault
+      DisplayLabel = 'Valor Unitario'
       FieldName = 'valorunitario'
       Origin = 'valorunitario'
     end
